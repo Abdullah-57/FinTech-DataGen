@@ -1,243 +1,124 @@
 [
   {
     "symbol": "AAPL",
-    "exchange": "NASDAQ",
-    "date": "2025-09-04",
+    "exchange": "Crypto",
+    "date": "2025-09-22",
     "structured_data": {
-      "open_price": 238.4499969482422,
-      "high_price": 239.89999389648438,
-      "low_price": 236.74000549316406,
-      "close_price": 239.77999877929688,
-      "volume": 47549400,
-      "daily_return": 0.005493343195739575,
+      "open_price": 248.3000030517578,
+      "high_price": 256.6400146484375,
+      "low_price": 248.1199951171875,
+      "close_price": 256.0799865722656,
+      "volume": 105517400,
+      "daily_return": 0.04309566831880085,
       "volatility": NaN,
-      "sma_5": 234.53399963378905,
+      "sma_5": 243.31999816894532,
       "sma_20": NaN,
-      "rsi": NaN
+      "rsi": 74.15687915239884
     },
     "unstructured_data": {
       "news_headlines": [
-        "Why Apple (AAPL) Shares Are Sliding Today - Yahoo Finance",
-        "Here’s Why Apple (AAPL) Traded Lower in Q2 - Yahoo Finance"
+        "Apple (AAPL) Stock Is Up, What You Need To Know - Yahoo Finance",
+        "Tigress Financial Partners Raises Its Price Target on Apple Inc. (AAPL) to $305 - Yahoo Finance",
+        "Apple stock turns positive for 2025, gold's new record high - Yahoo Finance"
       ],
-      "news_sentiment_score": 0.0
+      "news_sentiment_score": 1.0
     }
   },
   {
     "symbol": "AAPL",
-    "exchange": "NASDAQ",
-    "date": "2025-09-05",
+    "exchange": "Crypto",
+    "date": "2025-09-23",
     "structured_data": {
-      "open_price": 240.0,
-      "high_price": 241.32000732421875,
-      "low_price": 238.49000549316406,
-      "close_price": 239.69000244140625,
-      "volume": 54870400,
-      "daily_return": -0.00037532879451496193,
+      "open_price": 255.8800048828125,
+      "high_price": 257.3399963378906,
+      "low_price": 253.5800018310547,
+      "close_price": 254.42999267578125,
+      "volume": 60275200,
+      "daily_return": -0.006443275472520216,
       "volatility": NaN,
-      "sma_5": 235.96000061035156,
+      "sma_5": 246.57599792480468,
       "sma_20": NaN,
-      "rsi": 65.80461392332563
+      "rsi": 66.8141533170993
     },
     "unstructured_data": {
       "news_headlines": [
-        "Why Apple (AAPL) Shares Are Sliding Today - Yahoo Finance",
-        "Here’s Why Apple (AAPL) Traded Lower in Q2 - Yahoo Finance"
+        "Apple stock turns positive for 2025 after iPhone 17 launch - Yahoo Finance",
+        "Apple (AAPL) Stock Target Raised to $310 on Surging iPhone 17 Demand - Yahoo Finance",
+        "Analyst Says He ‘Loves’ Apple (AAPL) Amid ‘Good News’ Following iPhone 17 Launch - Yahoo Finance"
       ],
-      "news_sentiment_score": 0.0
+      "news_sentiment_score": 1.0
     }
   },
   {
     "symbol": "AAPL",
-    "exchange": "NASDAQ",
-    "date": "2025-09-08",
+    "exchange": "Crypto",
+    "date": "2025-09-24",
     "structured_data": {
-      "open_price": 239.3000030517578,
-      "high_price": 240.14999389648438,
-      "low_price": 236.33999633789062,
-      "close_price": 237.8800048828125,
-      "volume": 48999500,
-      "daily_return": -0.007551410322323426,
+      "open_price": 255.22000122070312,
+      "high_price": 255.74000549316406,
+      "low_price": 251.0399932861328,
+      "close_price": 252.30999755859375,
+      "volume": 42303700,
+      "daily_return": -0.008332331793480807,
       "volatility": NaN,
-      "sma_5": 237.10800170898438,
+      "sma_5": 249.23999633789063,
       "sma_20": NaN,
-      "rsi": 61.78753883531869
+      "rsi": 62.97907772026622
     },
     "unstructured_data": {
       "news_headlines": [
-        "Why Apple (AAPL) Shares Are Sliding Today - Yahoo Finance",
-        "Here’s Why Apple (AAPL) Traded Lower in Q2 - Yahoo Finance"
+        "UBS Reaffirms Price Target on Apple (AAPL) After Mixed iPhone 17 Preorder Data - Yahoo Finance"
       ],
       "news_sentiment_score": 0.0
     }
   },
   {
     "symbol": "AAPL",
-    "exchange": "NASDAQ",
-    "date": "2025-09-09",
+    "exchange": "Crypto",
+    "date": "2025-09-25",
     "structured_data": {
-      "open_price": 237.0,
-      "high_price": 238.77999877929688,
-      "low_price": 233.36000061035156,
-      "close_price": 234.35000610351562,
-      "volume": 66313900,
-      "daily_return": -0.014839409394815983,
+      "open_price": 253.2100067138672,
+      "high_price": 257.1700134277344,
+      "low_price": 251.7100067138672,
+      "close_price": 256.8699951171875,
+      "volume": 55202100,
+      "daily_return": 0.018072995928489766,
       "volatility": NaN,
-      "sma_5": 238.03400268554688,
+      "sma_5": 253.03799438476562,
       "sma_20": NaN,
-      "rsi": 55.768662650915815
+      "rsi": 66.28744392958157
     },
     "unstructured_data": {
       "news_headlines": [
-        "Why Apple (AAPL) Shares Are Sliding Today - Yahoo Finance",
-        "Here’s Why Apple (AAPL) Traded Lower in Q2 - Yahoo Finance"
+        "Why the Market Dipped But Apple (AAPL) Gained Today - Yahoo Finance",
+        "INTC: Intel stock Jumps 6% on report of Apple investment talks in early stage - Yahoo Finance"
       ],
       "news_sentiment_score": 0.0
     }
   },
   {
     "symbol": "AAPL",
-    "exchange": "NASDAQ",
-    "date": "2025-09-10",
+    "exchange": "Crypto",
+    "date": "2025-09-26",
     "structured_data": {
-      "open_price": 232.19000244140625,
-      "high_price": 232.4199981689453,
-      "low_price": 225.9499969482422,
-      "close_price": 226.7899932861328,
-      "volume": 83440800,
-      "daily_return": -0.03225949486019408,
+      "open_price": 254.10000610351562,
+      "high_price": 257.6000061035156,
+      "low_price": 253.77999877929688,
+      "close_price": 255.4600067138672,
+      "volume": 46045700,
+      "daily_return": -0.005489112898051984,
       "volatility": NaN,
-      "sma_5": 235.6980010986328,
+      "sma_5": 255.02999572753907,
       "sma_20": NaN,
-      "rsi": 51.08756148622197
+      "rsi": 66.79404679616331
     },
     "unstructured_data": {
       "news_headlines": [
-        "Why Apple (AAPL) Shares Are Sliding Today - Yahoo Finance",
-        "Here’s Why Apple (AAPL) Traded Lower in Q2 - Yahoo Finance"
+        "Apple (AAPL) Stock: UBS Reiterates Neutral, $220 PT on iPhone 17 Availability Data - Yahoo Finance",
+        "Apple (AAPL) Sees High Demand for Affordable iPhone 17 - Yahoo Finance",
+        "Tigress Financial Raises PT on Apple from $300 to $305, Keeps Buy Rating on the Stock - Yahoo Finance"
       ],
-      "news_sentiment_score": 0.0
-    }
-  },
-  {
-    "symbol": "AAPL",
-    "exchange": "NASDAQ",
-    "date": "2025-09-11",
-    "structured_data": {
-      "open_price": 226.8800048828125,
-      "high_price": 230.4499969482422,
-      "low_price": 226.64999389648438,
-      "close_price": 230.02999877929688,
-      "volume": 50208600,
-      "daily_return": 0.014286368839370622,
-      "volatility": NaN,
-      "sma_5": 233.7480010986328,
-      "sma_20": NaN,
-      "rsi": 56.751784945407344
-    },
-    "unstructured_data": {
-      "news_headlines": [
-        "Rosenblatt Lifts PT on Apple (AAPL) Stock - Yahoo Finance"
-      ],
-      "news_sentiment_score": 0.0
-    }
-  },
-  {
-    "symbol": "AAPL",
-    "exchange": "NASDAQ",
-    "date": "2025-09-12",
-    "structured_data": {
-      "open_price": 229.22000122070312,
-      "high_price": 234.50999450683594,
-      "low_price": 229.02000427246094,
-      "close_price": 234.07000732421875,
-      "volume": 55824200,
-      "daily_return": 0.017562963814985233,
-      "volatility": NaN,
-      "sma_5": 232.6240020751953,
-      "sma_20": NaN,
-      "rsi": 58.05465038594961
-    },
-    "unstructured_data": {
-      "news_headlines": [
-        "Rosenblatt Lifts PT on Apple (AAPL) Stock - Yahoo Finance"
-      ],
-      "news_sentiment_score": 0.0
-    }
-  },
-  {
-    "symbol": "AAPL",
-    "exchange": "NASDAQ",
-    "date": "2025-09-15",
-    "structured_data": {
-      "open_price": 237.0,
-      "high_price": 238.19000244140625,
-      "low_price": 235.02999877929688,
-      "close_price": 236.6999969482422,
-      "volume": 42699500,
-      "daily_return": 0.011235910376080627,
-      "volatility": NaN,
-      "sma_5": 232.38800048828125,
-      "sma_20": 231.9629997253418,
-      "rsi": 61.57766261259376
-    },
-    "unstructured_data": {
-      "news_headlines": [
-        "Apple (AAPL) Valuation: Examining the Numbers After Recent Stock Moves - Yahoo Finance"
-      ],
-      "news_sentiment_score": 0.0
-    }
-  },
-  {
-    "symbol": "AAPL",
-    "exchange": "NASDAQ",
-    "date": "2025-09-16",
-    "structured_data": {
-      "open_price": 237.17999267578125,
-      "high_price": 241.22000122070312,
-      "low_price": 236.32000732421875,
-      "close_price": 238.14999389648438,
-      "volume": 63384900,
-      "daily_return": 0.0061258849469238985,
-      "volatility": 0.015067242631076422,
-      "sma_5": 233.147998046875,
-      "sma_20": 232.32599945068358,
-      "rsi": 60.91357572579089
-    },
-    "unstructured_data": {
-      "news_headlines": [
-        "Why Apple Stock Inched Higher on Tuesday - The Motley Fool"
-      ],
-      "news_sentiment_score": 0.0
-    }
-  },
-  {
-    "symbol": "AAPL",
-    "exchange": "NASDAQ",
-    "date": "2025-09-17",
-    "structured_data": {
-      "open_price": 238.97000122070312,
-      "high_price": 240.10000610351562,
-      "low_price": 238.7899932861328,
-      "close_price": 239.37539672851562,
-      "volume": 16309869,
-      "daily_return": 0.005145508559466494,
-      "volatility": 0.015068090527993277,
-      "sma_5": 235.66507873535156,
-      "sma_20": 232.7667694091797,
-      "rsi": 60.9573371499065
-    },
-    "unstructured_data": {
-      "news_headlines": [
-        "iPhone 17 Won’t Bring ‘Super Cycle’ for Apple (AAPL), AT&T CEO Says - uk.finance.yahoo.com",
-        "Tigress Financial Issues Positive Forecast for Apple (NASDAQ:AAPL) Stock Price - MarketBeat",
-        "Apple Inc (AAPL)'s Winning Formula: Financial Metrics and Compet - GuruFocus",
-        "Anderson Financial Strategies LLC Increases Stake in Apple Inc. $AAPL - MarketBeat",
-        "Apple Inc. $AAPL Shares Sold by Howard Financial Services LTD. - MarketBeat",
-        "Apple iPhone Air and iPhone 17 review: Apple's strongest lineup in years - Yahoo Finance",
-        "First Financial Bank Trust Division Sells 4,245 Shares of Apple Inc. $AAPL - MarketBeat"
-      ],
-      "news_sentiment_score": 0.3333333333333333
+      "news_sentiment_score": 1.0
     }
   }
 ]
