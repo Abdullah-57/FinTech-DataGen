@@ -110,5 +110,3 @@ MIT License — free to use and modify with credit.
 **Institution**: FAST NUCES, BS Software Engineering
 
 Stay tuned — this is just Phase 1 of the full **FinTech-DatGen** FinTech platform! 🚀
-
-```
