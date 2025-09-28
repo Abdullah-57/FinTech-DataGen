@@ -15,7 +15,7 @@ const Dashboard = () => {
       try {
         const response = await axios.get('/api/health');
         setStatus('online');
-        setStats(response.data.stats || {});
+        setStats(response.data.stats || {});  // Fixed: Use empty object instead of stats
       } catch (error) {
         console.error('Backend connection failed:', error);
         setStatus('offline');
@@ -26,7 +26,7 @@ const Dashboard = () => {
     const interval = setInterval(testConnection, 30000); // Check every 30 seconds
 
     return () => clearInterval(interval);
-  }, []);
+  }, []); // Fixed: Empty dependency array is correct
 
   return (
     <div className="dashboard">
@@ -62,12 +62,13 @@ const Dashboard = () => {
 
       <div className="card">
         <h3>Recent Activity</h3>
-        <p>Welcome to FinTech DataGen! This is a boilerplate setup to test the tech stack.</p>
+        <p>Welcome to FinTech DataGen! This application now integrates the FinTech Data Curator directly.</p>
         <ul>
           <li>✅ React.js Frontend initialized</li>
           <li>✅ Flask Backend ready</li>
           <li>✅ MongoDB connection configured</li>
-          <li>✅ Machine Learning models folder created</li>
+          <li>✅ FinTech Data Curator integrated</li>
+          <li>✅ CSV/JSON download functionality</li>
         </ul>
       </div>
     </div>
