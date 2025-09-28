@@ -1,0 +1,241 @@
+[
+  {
+    "symbol": "TSLA",
+    "exchange": "NASDAQ",
+    "date": "2025-09-04",
+    "structured_data": {
+      "open_price": 336.1499938964844,
+      "high_price": 338.8900146484375,
+      "low_price": 331.4800109863281,
+      "close_price": 338.5299987792969,
+      "volume": 60711000,
+      "daily_return": 0.01328983953448204,
+      "volatility": NaN,
+      "sma_5": 336.3659973144531,
+      "sma_20": NaN,
+      "rsi": NaN
+    },
+    "unstructured_data": {
+      "news_headlines": [
+        "Tesla Stock (NASDAQ:TSLA) Faces Uncertain Backdrop, Says Wolfe - Yahoo Finance"
+      ],
+      "news_sentiment_score": -1.0
+    }
+  },
+  {
+    "symbol": "TSLA",
+    "exchange": "NASDAQ",
+    "date": "2025-09-05",
+    "structured_data": {
+      "open_price": 348.0,
+      "high_price": 355.8699951171875,
+      "low_price": 344.67999267578125,
+      "close_price": 350.8399963378906,
+      "volume": 108989800,
+      "daily_return": 0.036363092201525005,
+      "volatility": NaN,
+      "sma_5": 337.33799438476564,
+      "sma_20": NaN,
+      "rsi": 58.672554123076196
+    },
+    "unstructured_data": {
+      "news_headlines": [
+        "Tesla Stock (NASDAQ:TSLA) Faces Uncertain Backdrop, Says Wolfe - Yahoo Finance"
+      ],
+      "news_sentiment_score": -1.0
+    }
+  },
+  {
+    "symbol": "TSLA",
+    "exchange": "NASDAQ",
+    "date": "2025-09-08",
+    "structured_data": {
+      "open_price": 354.6400146484375,
+      "high_price": 358.44000244140625,
+      "low_price": 344.8399963378906,
+      "close_price": 346.3999938964844,
+      "volume": 75208300,
+      "daily_return": -0.01265534855703887,
+      "volatility": NaN,
+      "sma_5": 339.843994140625,
+      "sma_20": NaN,
+      "rsi": 55.92575907739436
+    },
+    "unstructured_data": {
+      "news_headlines": [
+        "Tesla Stock (NASDAQ:TSLA) Faces Uncertain Backdrop, Says Wolfe - Yahoo Finance"
+      ],
+      "news_sentiment_score": -1.0
+    }
+  },
+  {
+    "symbol": "TSLA",
+    "exchange": "NASDAQ",
+    "date": "2025-09-09",
+    "structured_data": {
+      "open_price": 348.44000244140625,
+      "high_price": 350.7699890136719,
+      "low_price": 343.82000732421875,
+      "close_price": 346.9700012207031,
+      "volume": 53816000,
+      "daily_return": 0.001645517708609212,
+      "volatility": NaN,
+      "sma_5": 343.3659973144531,
+      "sma_20": NaN,
+      "rsi": 59.8593044275319
+    },
+    "unstructured_data": {
+      "news_headlines": [
+        "Tesla Stock (NASDAQ:TSLA) Faces Uncertain Backdrop, Says Wolfe - Yahoo Finance"
+      ],
+      "news_sentiment_score": -1.0
+    }
+  },
+  {
+    "symbol": "TSLA",
+    "exchange": "NASDAQ",
+    "date": "2025-09-10",
+    "structured_data": {
+      "open_price": 350.54998779296875,
+      "high_price": 356.3299865722656,
+      "low_price": 346.07000732421875,
+      "close_price": 347.7900085449219,
+      "volume": 72121700,
+      "daily_return": 0.0023633378140295314,
+      "volatility": NaN,
+      "sma_5": 346.1059997558594,
+      "sma_20": NaN,
+      "rsi": 64.05789606005101
+    },
+    "unstructured_data": {
+      "news_headlines": [
+        "TSLA: Tesla Stock Soars to Seven-Month High on Energy Business Momentum - Yahoo Finance",
+        "Wells Fargo Reiterates Underweight on Tesla(TSLA), $120 Price Target - Yahoo Finance"
+      ],
+      "news_sentiment_score": 1.0
+    }
+  },
+  {
+    "symbol": "TSLA",
+    "exchange": "NASDAQ",
+    "date": "2025-09-11",
+    "structured_data": {
+      "open_price": 350.1700134277344,
+      "high_price": 368.989990234375,
+      "low_price": 347.6000061035156,
+      "close_price": 368.80999755859375,
+      "volume": 103756000,
+      "daily_return": 0.06043873744853956,
+      "volatility": NaN,
+      "sma_5": 352.16199951171876,
+      "sma_20": NaN,
+      "rsi": 73.82582059976852
+    },
+    "unstructured_data": {
+      "news_headlines": [
+        "TSLA: Tesla Stock Soars to Seven-Month High on Energy Business Momentum - Yahoo Finance",
+        "Wells Fargo Reiterates Underweight on Tesla(TSLA), $120 Price Target - Yahoo Finance"
+      ],
+      "news_sentiment_score": 1.0
+    }
+  },
+  {
+    "symbol": "TSLA",
+    "exchange": "NASDAQ",
+    "date": "2025-09-12",
+    "structured_data": {
+      "open_price": 370.94000244140625,
+      "high_price": 396.69000244140625,
+      "low_price": 370.239990234375,
+      "close_price": 395.94000244140625,
+      "volume": 168156400,
+      "daily_return": 0.07356092584909457,
+      "volatility": NaN,
+      "sma_5": 361.1820007324219,
+      "sma_20": NaN,
+      "rsi": 75.5551335209621
+    },
+    "unstructured_data": {
+      "news_headlines": [
+        "TSLA: Tesla Stock Soars to Seven-Month High on Energy Business Momentum - Yahoo Finance",
+        "Wells Fargo Reiterates Underweight on Tesla(TSLA), $120 Price Target - Yahoo Finance"
+      ],
+      "news_sentiment_score": 1.0
+    }
+  },
+  {
+    "symbol": "TSLA",
+    "exchange": "NASDAQ",
+    "date": "2025-09-15",
+    "structured_data": {
+      "open_price": 423.1300048828125,
+      "high_price": 425.70001220703125,
+      "low_price": 402.42999267578125,
+      "close_price": 410.0400085449219,
+      "volume": 163823700,
+      "daily_return": 0.03561147147692467,
+      "volatility": NaN,
+      "sma_5": 373.9100036621094,
+      "sma_20": 347.2490005493164,
+      "rsi": 77.12500769854682
+    },
+    "unstructured_data": {
+      "news_headlines": [
+        "Bard Financial Services Inc. Sells 3,020 Shares of Tesla, Inc. $TSLA - MarketBeat",
+        "TSLA: Tesla Stock Jumps After Musk's Billion-Dollar Insider Purchase - uk.finance.yahoo.com",
+        "Elon Musk buys $1B in Tesla stock: What it signals to investors - Yahoo Finance"
+      ],
+      "news_sentiment_score": 0.0
+    }
+  },
+  {
+    "symbol": "TSLA",
+    "exchange": "NASDAQ",
+    "date": "2025-09-16",
+    "structured_data": {
+      "open_price": 414.5,
+      "high_price": 423.25,
+      "low_price": 411.42999267578125,
+      "close_price": 421.6199951171875,
+      "volume": 103769900,
+      "daily_return": 0.028241113869250656,
+      "volatility": 0.029789692326436978,
+      "sma_5": 388.8400024414062,
+      "sma_20": 351.57200012207034,
+      "rsi": 78.3312910006425
+    },
+    "unstructured_data": {
+      "news_headlines": [
+        "Burr Financial Services LLC Reduces Stock Position in Tesla, Inc. $TSLA - MarketBeat",
+        "TSLA: Tesla Climbs Again Despite Regulators Launch Model Y Door Handle Probe - uk.finance.yahoo.com"
+      ],
+      "news_sentiment_score": 0.0
+    }
+  },
+  {
+    "symbol": "TSLA",
+    "exchange": "NASDAQ",
+    "date": "2025-09-17",
+    "structured_data": {
+      "open_price": 415.6050109863281,
+      "high_price": 419.4800109863281,
+      "low_price": 409.6700134277344,
+      "close_price": 419.08099365234375,
+      "volume": 43054343,
+      "daily_return": -0.006022013885129018,
+      "volatility": 0.029301393684736582,
+      "sma_5": 403.09819946289065,
+      "sma_20": 356.0605499267578,
+      "rsi": 78.0348319783952
+    },
+    "unstructured_data": {
+      "news_headlines": [
+        "Tesla, Inc. $TSLA Shares Bought by Krilogy Financial LLC - MarketBeat",
+        "Tesla (TSLA) Stock: TD Cowen Reiterates Buy Rating, Price Target $374 - Yahoo Finance",
+        "Beacon Financial Group Buys 937 Shares of Tesla, Inc. $TSLA - MarketBeat",
+        "Wedbush Reiterates Outperform on Tesla (TSLA), Calls Musk a ‘Wartime CEO’ - Yahoo Finance"
+      ],
+      "news_sentiment_score": 1.0
+    }
+  }
+]

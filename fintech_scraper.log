@@ -1,0 +1,288 @@
+2025-09-16 20:02:06,748 - INFO - Starting data curation for AAPL on NASDAQ
+2025-09-16 20:02:06,749 - INFO - Fetching structured data for AAPL on NASDAQ
+2025-09-16 20:02:08,866 - INFO - Successfully retrieved 10 days of data for AAPL
+2025-09-16 20:02:08,867 - INFO - Fetching unstructured data (news) for AAPL
+2025-09-16 20:02:12,185 - INFO - Retrieved news for 1 different dates
+2025-09-16 20:02:12,190 - INFO - Successfully curated 10 data points for AAPL
+2025-09-16 20:02:12,191 - INFO - Data saved to AAPL_data.csv
+2025-09-16 20:02:12,194 - INFO - Data saved to AAPL_data.json
+2025-09-16 20:02:12,198 - INFO - Starting data curation for GOOGL on NASDAQ
+2025-09-16 20:02:12,199 - INFO - Fetching structured data for GOOGL on NASDAQ
+2025-09-16 20:02:12,556 - INFO - Successfully retrieved 10 days of data for GOOGL
+2025-09-16 20:02:12,558 - INFO - Fetching unstructured data (news) for GOOGL
+2025-09-16 20:02:13,137 - INFO - Retrieved news for 1 different dates
+2025-09-16 20:02:13,140 - INFO - Successfully curated 10 data points for GOOGL
+2025-09-16 20:02:13,141 - INFO - Data saved to GOOGL_data.csv
+2025-09-16 20:02:13,143 - INFO - Data saved to GOOGL_data.json
+2025-09-16 20:02:13,146 - INFO - Starting data curation for BTC-USD on Crypto
+2025-09-16 20:02:13,147 - INFO - Fetching structured data for BTC-USD on Crypto
+2025-09-16 20:02:13,518 - INFO - Successfully retrieved 10 days of data for BTC-USD
+2025-09-16 20:02:13,519 - INFO - Fetching unstructured data (news) for BTC-USD
+2025-09-16 20:02:13,976 - INFO - Retrieved news for 5 different dates
+2025-09-16 20:02:13,979 - INFO - Successfully curated 10 data points for BTC-USD
+2025-09-16 20:02:13,981 - INFO - Data saved to BTC_USD_data.csv
+2025-09-16 20:02:13,983 - INFO - Data saved to BTC_USD_data.json
+2025-09-16 20:09:26,574 - INFO - Starting data curation for AAPL on NASDAQ
+2025-09-16 20:09:26,575 - INFO - Fetching structured data for AAPL on NASDAQ
+2025-09-16 20:09:28,650 - INFO - Successfully retrieved 7 days of data for AAPL
+2025-09-16 20:09:28,650 - INFO - Fetching unstructured data (news) for AAPL
+2025-09-16 20:09:30,057 - INFO - Retrieved news for 1 different dates
+2025-09-16 20:09:30,059 - INFO - Successfully curated 7 data points for AAPL
+2025-09-16 20:09:30,060 - INFO - Data saved to demo_AAPL.csv
+2025-09-16 20:09:30,061 - INFO - Data saved to demo_AAPL.json
+2025-09-16 20:09:31,067 - INFO - Starting data curation for MSFT on NASDAQ
+2025-09-16 20:09:31,068 - INFO - Fetching structured data for MSFT on NASDAQ
+2025-09-16 20:09:31,449 - INFO - Successfully retrieved 7 days of data for MSFT
+2025-09-16 20:09:31,450 - INFO - Fetching unstructured data (news) for MSFT
+2025-09-16 20:09:31,884 - INFO - Retrieved news for 1 different dates
+2025-09-16 20:09:31,886 - INFO - Successfully curated 7 data points for MSFT
+2025-09-16 20:09:31,888 - INFO - Data saved to demo_MSFT.csv
+2025-09-16 20:09:31,890 - INFO - Data saved to demo_MSFT.json
+2025-09-16 20:09:32,896 - INFO - Starting data curation for BTC-USD on Crypto
+2025-09-16 20:09:32,897 - INFO - Fetching structured data for BTC-USD on Crypto
+2025-09-16 20:09:33,244 - INFO - Successfully retrieved 7 days of data for BTC-USD
+2025-09-16 20:09:33,244 - INFO - Fetching unstructured data (news) for BTC-USD
+2025-09-16 20:09:33,970 - INFO - Retrieved news for 5 different dates
+2025-09-16 20:09:33,972 - INFO - Successfully curated 7 data points for BTC-USD
+2025-09-16 20:09:33,973 - INFO - Data saved to demo_BTC_USD.csv
+2025-09-16 20:09:33,975 - INFO - Data saved to demo_BTC_USD.json
+2025-09-16 20:10:21,239 - INFO - Starting data curation for BTC-USD on Crypto
+2025-09-16 20:10:21,239 - INFO - Fetching structured data for BTC-USD on Crypto
+2025-09-16 20:10:21,601 - INFO - Successfully retrieved 20 days of data for BTC-USD
+2025-09-16 20:10:21,602 - INFO - Fetching unstructured data (news) for BTC-USD
+2025-09-16 20:10:22,181 - INFO - Retrieved news for 5 different dates
+2025-09-16 20:10:22,188 - INFO - Successfully curated 20 data points for BTC-USD
+2025-09-16 20:10:22,190 - INFO - Data saved to demo_BTC_USD.csv
+2025-09-16 20:10:22,192 - INFO - Data saved to demo_BTC_USD.json
+2025-09-16 21:47:51,257 - INFO - Starting data curation for AAPL on NASDAQ
+2025-09-16 21:47:51,258 - INFO - Fetching structured data for AAPL on NASDAQ
+2025-09-16 21:47:53,455 - INFO - Successfully retrieved 10 days of data for AAPL
+2025-09-16 21:47:53,456 - INFO - Fetching unstructured data (news) for AAPL
+2025-09-16 21:47:54,671 - INFO - Retrieved news for 1 different dates
+2025-09-16 21:47:54,673 - INFO - Successfully curated 10 data points for AAPL
+2025-09-16 21:47:54,674 - INFO - Data saved to AAPL_data.csv
+2025-09-16 21:47:54,675 - INFO - Data saved to AAPL_data.json
+2025-09-16 21:47:54,678 - INFO - Starting data curation for GOOGL on NASDAQ
+2025-09-16 21:47:54,678 - INFO - Fetching structured data for GOOGL on NASDAQ
+2025-09-16 21:47:55,025 - INFO - Successfully retrieved 10 days of data for GOOGL
+2025-09-16 21:47:55,025 - INFO - Fetching unstructured data (news) for GOOGL
+2025-09-16 21:47:55,411 - INFO - Retrieved news for 1 different dates
+2025-09-16 21:47:55,414 - INFO - Successfully curated 10 data points for GOOGL
+2025-09-16 21:47:55,415 - INFO - Data saved to GOOGL_data.csv
+2025-09-16 21:47:55,416 - INFO - Data saved to GOOGL_data.json
+2025-09-16 21:47:55,420 - INFO - Starting data curation for BTC-USD on Crypto
+2025-09-16 21:47:55,420 - INFO - Fetching structured data for BTC-USD on Crypto
+2025-09-16 21:47:55,772 - INFO - Successfully retrieved 10 days of data for BTC-USD
+2025-09-16 21:47:55,773 - INFO - Fetching unstructured data (news) for BTC-USD
+2025-09-16 21:47:56,168 - INFO - Retrieved news for 5 different dates
+2025-09-16 21:47:56,170 - INFO - Successfully curated 10 data points for BTC-USD
+2025-09-16 21:47:56,171 - INFO - Data saved to BTC_USD_data.csv
+2025-09-16 21:47:56,173 - INFO - Data saved to BTC_USD_data.json
+2025-09-16 21:53:06,634 - INFO - Starting data curation for AAPL on NASDAQ
+2025-09-16 21:53:06,634 - INFO - Fetching structured data for AAPL on NASDAQ
+2025-09-16 21:53:09,173 - INFO - Successfully retrieved 7 days of data for AAPL
+2025-09-16 21:53:09,174 - INFO - Fetching unstructured data (news) for AAPL
+2025-09-16 21:53:10,803 - INFO - Retrieved news for 1 different dates
+2025-09-16 21:53:10,805 - INFO - Successfully curated 7 data points for AAPL
+2025-09-16 21:53:10,806 - INFO - Data saved to demo_AAPL.csv
+2025-09-16 21:53:10,808 - INFO - Data saved to demo_AAPL.json
+2025-09-16 21:53:11,812 - INFO - Starting data curation for MSFT on NASDAQ
+2025-09-16 21:53:11,812 - INFO - Fetching structured data for MSFT on NASDAQ
+2025-09-16 21:53:12,349 - INFO - Successfully retrieved 7 days of data for MSFT
+2025-09-16 21:53:12,349 - INFO - Fetching unstructured data (news) for MSFT
+2025-09-16 21:53:12,791 - INFO - Retrieved news for 1 different dates
+2025-09-16 21:53:12,793 - INFO - Successfully curated 7 data points for MSFT
+2025-09-16 21:53:12,795 - INFO - Data saved to demo_MSFT.csv
+2025-09-16 21:53:12,796 - INFO - Data saved to demo_MSFT.json
+2025-09-16 21:53:13,803 - INFO - Starting data curation for BTC-USD on Crypto
+2025-09-16 21:53:13,803 - INFO - Fetching structured data for BTC-USD on Crypto
+2025-09-16 21:53:14,154 - INFO - Successfully retrieved 7 days of data for BTC-USD
+2025-09-16 21:53:14,155 - INFO - Fetching unstructured data (news) for BTC-USD
+2025-09-16 21:53:14,568 - INFO - Retrieved news for 5 different dates
+2025-09-16 21:53:14,570 - INFO - Successfully curated 7 data points for BTC-USD
+2025-09-16 21:53:14,571 - INFO - Data saved to demo_BTC_USD.csv
+2025-09-16 21:53:14,573 - INFO - Data saved to demo_BTC_USD.json
+2025-09-17 12:32:22,196 - INFO - Starting data curation for AAPL on NASDAQ
+2025-09-17 12:32:22,264 - INFO - Fetching structured data for AAPL on NASDAQ
+2025-09-17 12:32:25,920 - INFO - Successfully retrieved 10 days of data for AAPL
+2025-09-17 12:32:25,962 - INFO - Fetching unstructured data (news) for AAPL
+2025-09-17 12:32:27,075 - INFO - Retrieved news for 1 different dates
+2025-09-17 12:32:27,098 - INFO - Successfully curated 10 data points for AAPL
+2025-09-17 12:32:27,116 - INFO - Data saved to AAPL_data.csv
+2025-09-17 12:32:27,142 - INFO - Data saved to AAPL_data.json
+2025-09-17 12:32:29,370 - INFO - Starting data curation for GOOGL on NASDAQ
+2025-09-17 12:32:29,450 - INFO - Fetching structured data for GOOGL on NASDAQ
+2025-09-17 12:32:29,945 - INFO - Successfully retrieved 10 days of data for GOOGL
+2025-09-17 12:32:30,018 - INFO - Fetching unstructured data (news) for GOOGL
+2025-09-17 12:32:30,784 - INFO - Retrieved news for 1 different dates
+2025-09-17 12:32:30,831 - INFO - Successfully curated 10 data points for GOOGL
+2025-09-17 12:32:30,886 - INFO - Data saved to GOOGL_data.csv
+2025-09-17 12:32:30,895 - INFO - Data saved to GOOGL_data.json
+2025-09-17 12:32:32,527 - INFO - Starting data curation for BTC-USD on Crypto
+2025-09-17 12:32:32,596 - INFO - Fetching structured data for BTC-USD on Crypto
+2025-09-17 12:32:33,004 - INFO - Successfully retrieved 10 days of data for BTC-USD
+2025-09-17 12:32:33,015 - INFO - Fetching unstructured data (news) for BTC-USD
+2025-09-17 12:32:34,270 - INFO - Retrieved news for 5 different dates
+2025-09-17 12:32:34,280 - INFO - Successfully curated 10 data points for BTC-USD
+2025-09-17 12:32:34,293 - INFO - Data saved to BTC_USD_data.csv
+2025-09-17 12:32:34,345 - INFO - Data saved to BTC_USD_data.json
+2025-09-17 12:34:08,739 - INFO - Starting data curation for AAPL on NASDAQ
+2025-09-17 12:34:08,740 - INFO - Fetching structured data for AAPL on NASDAQ
+2025-09-17 12:34:15,314 - INFO - Successfully retrieved 5 days of data for AAPL
+2025-09-17 12:34:15,314 - INFO - Fetching unstructured data (news) for AAPL
+2025-09-17 12:34:16,742 - INFO - Retrieved news for 1 different dates
+2025-09-17 12:34:16,744 - INFO - Successfully curated 5 data points for AAPL
+2025-09-17 12:34:16,746 - INFO - Data saved to output\csv\demo_AAPL.csv
+2025-09-17 12:34:16,748 - INFO - Data saved to output\json\demo_AAPL.json
+2025-09-17 12:34:53,584 - INFO - Starting data curation for BTC-USD on Crypto
+2025-09-17 12:34:53,584 - INFO - Fetching structured data for BTC-USD on Crypto
+2025-09-17 12:34:53,891 - INFO - Successfully retrieved 5 days of data for BTC-USD
+2025-09-17 12:34:53,891 - INFO - Fetching unstructured data (news) for BTC-USD
+2025-09-17 12:34:57,095 - INFO - Retrieved news for 5 different dates
+2025-09-17 12:34:57,096 - INFO - Successfully curated 5 data points for BTC-USD
+2025-09-17 12:34:57,098 - INFO - Data saved to output\csv\demo_BTC_USD.csv
+2025-09-17 12:34:57,100 - INFO - Data saved to output\json\demo_BTC_USD.json
+2025-09-17 12:35:25,809 - INFO - Starting data curation for MSFT on NYSE
+2025-09-17 12:35:25,809 - INFO - Fetching structured data for MSFT on NYSE
+2025-09-17 12:35:26,703 - INFO - Successfully retrieved 5 days of data for MSFT
+2025-09-17 12:35:26,705 - INFO - Fetching unstructured data (news) for MSFT
+2025-09-17 12:35:27,233 - INFO - Retrieved news for 1 different dates
+2025-09-17 12:35:27,237 - INFO - Successfully curated 5 data points for MSFT
+2025-09-17 12:35:27,241 - INFO - Data saved to output\csv\demo_MSFT.csv
+2025-09-17 12:35:27,246 - INFO - Data saved to output\json\demo_MSFT.json
+2025-09-17 12:36:04,090 - INFO - Starting data curation for AAPL on NASDAQ
+2025-09-17 12:36:04,090 - INFO - Fetching structured data for AAPL on NASDAQ
+2025-09-17 12:36:04,525 - INFO - Successfully retrieved 7 days of data for AAPL
+2025-09-17 12:36:04,525 - INFO - Fetching unstructured data (news) for AAPL
+2025-09-17 12:36:05,771 - INFO - Retrieved news for 1 different dates
+2025-09-17 12:36:05,775 - INFO - Successfully curated 7 data points for AAPL
+2025-09-17 12:36:05,779 - INFO - Data saved to output\csv\demo_AAPL.csv
+2025-09-17 12:36:05,784 - INFO - Data saved to output\json\demo_AAPL.json
+2025-09-17 12:36:06,795 - INFO - Starting data curation for MSFT on NASDAQ
+2025-09-17 12:36:06,795 - INFO - Fetching structured data for MSFT on NASDAQ
+2025-09-17 12:36:09,760 - INFO - Successfully retrieved 7 days of data for MSFT
+2025-09-17 12:36:09,760 - INFO - Fetching unstructured data (news) for MSFT
+2025-09-17 12:36:13,084 - INFO - Retrieved news for 1 different dates
+2025-09-17 12:36:13,087 - INFO - Successfully curated 7 data points for MSFT
+2025-09-17 12:36:13,089 - INFO - Data saved to output\csv\demo_MSFT.csv
+2025-09-17 12:36:13,091 - INFO - Data saved to output\json\demo_MSFT.json
+2025-09-17 12:36:14,100 - INFO - Starting data curation for BTC-USD on Crypto
+2025-09-17 12:36:14,100 - INFO - Fetching structured data for BTC-USD on Crypto
+2025-09-17 12:36:14,401 - INFO - Successfully retrieved 7 days of data for BTC-USD
+2025-09-17 12:36:14,401 - INFO - Fetching unstructured data (news) for BTC-USD
+2025-09-17 12:36:15,704 - INFO - Retrieved news for 5 different dates
+2025-09-17 12:36:15,709 - INFO - Successfully curated 7 data points for BTC-USD
+2025-09-17 12:36:15,712 - INFO - Data saved to output\csv\demo_BTC_USD.csv
+2025-09-17 12:36:15,714 - INFO - Data saved to output\json\demo_BTC_USD.json
+2025-09-17 12:43:46,320 - INFO - Starting data curation for MSFT on NASDAQ
+2025-09-17 12:43:46,321 - INFO - Fetching structured data for MSFT on NASDAQ
+2025-09-17 12:43:48,164 - INFO - Successfully retrieved 5 days of data for MSFT
+2025-09-17 12:43:48,164 - INFO - Fetching unstructured data (news) for MSFT
+2025-09-17 12:43:50,828 - INFO - Retrieved news for 7 different dates
+2025-09-17 12:43:50,831 - INFO - Successfully curated 5 data points for MSFT
+2025-09-17 12:43:50,833 - INFO - Data saved to output\csv\demo_MSFT.csv
+2025-09-17 12:43:50,835 - INFO - Data saved to output\json\demo_MSFT.json
+2025-09-17 12:44:58,310 - INFO - Starting data curation for BTC-USD on Crypto
+2025-09-17 12:44:58,311 - INFO - Fetching structured data for BTC-USD on Crypto
+2025-09-17 12:44:58,536 - INFO - Successfully retrieved 5 days of data for BTC-USD
+2025-09-17 12:44:58,536 - INFO - Fetching unstructured data (news) for BTC-USD
+2025-09-17 12:45:00,867 - INFO - Retrieved news for 13 different dates
+2025-09-17 12:45:00,869 - INFO - Successfully curated 5 data points for BTC-USD
+2025-09-17 12:45:00,871 - INFO - Data saved to output\csv\demo_BTC_USD.csv
+2025-09-17 12:45:00,873 - INFO - Data saved to output\json\demo_BTC_USD.json
+2025-09-17 19:20:01,794 - INFO - Starting data curation for BTC-USD on AMZN
+2025-09-17 19:20:01,795 - INFO - Fetching structured data for BTC-USD on AMZN
+2025-09-17 19:20:03,795 - INFO - Successfully retrieved 5 days of data for BTC-USD
+2025-09-17 19:20:03,796 - INFO - Fetching unstructured data (news) for BTC-USD
+2025-09-17 19:20:07,332 - INFO - Retrieved news for 15 different dates
+2025-09-17 19:20:07,334 - INFO - Successfully curated 5 data points for BTC-USD
+2025-09-17 19:20:07,336 - INFO - Data saved to output\csv\demo_BTC_USD.csv
+2025-09-17 19:20:07,338 - INFO - Data saved to output\json\demo_BTC_USD.json
+2025-09-17 19:21:17,212 - INFO - Starting data curation for ETH-USD on TSLA
+2025-09-17 19:21:17,213 - INFO - Fetching structured data for ETH-USD on TSLA
+2025-09-17 19:21:17,899 - INFO - Successfully retrieved 5 days of data for ETH-USD
+2025-09-17 19:21:17,900 - INFO - Fetching unstructured data (news) for ETH-USD
+2025-09-17 19:21:20,147 - INFO - Retrieved news for 17 different dates
+2025-09-17 19:21:20,150 - INFO - Successfully curated 5 data points for ETH-USD
+2025-09-17 19:21:20,151 - INFO - Data saved to output\csv\demo_ETH_USD.csv
+2025-09-17 19:21:20,154 - INFO - Data saved to output\json\demo_ETH_USD.json
+2025-09-17 19:24:02,208 - INFO - Starting data curation for BTC-USD on HDFCBANK.BO
+2025-09-17 19:24:02,209 - INFO - Fetching structured data for BTC-USD on HDFCBANK.BO
+2025-09-17 19:24:02,220 - INFO - Successfully retrieved 5 days of data for BTC-USD
+2025-09-17 19:24:02,220 - INFO - Fetching unstructured data (news) for BTC-USD
+2025-09-17 19:24:05,358 - INFO - Retrieved news for 15 different dates
+2025-09-17 19:24:05,360 - INFO - Successfully curated 5 data points for BTC-USD
+2025-09-17 19:24:05,363 - INFO - Data saved to output\csv\demo_BTC_USD.csv
+2025-09-17 19:24:05,364 - INFO - Data saved to output\json\demo_BTC_USD.json
+2025-09-17 19:33:46,227 - INFO - Starting data curation for BTC-USD on Crypto
+2025-09-17 19:33:46,228 - INFO - Fetching structured data for BTC-USD on Crypto
+2025-09-17 19:33:47,182 - INFO - Successfully retrieved 5 days of data for BTC-USD via Yahoo chart API
+2025-09-17 19:33:47,183 - INFO - Fetching unstructured data (news) for BTC-USD
+2025-09-17 19:33:51,007 - INFO - Retrieved news for 15 different dates
+2025-09-17 19:33:51,010 - INFO - Successfully curated 5 data points for BTC-USD
+2025-09-17 19:33:51,011 - INFO - Data saved to output\csv\demo_BTC_USD.csv
+2025-09-17 19:33:51,013 - INFO - Data saved to output\json\demo_BTC_USD.json
+2025-09-17 19:35:05,028 - INFO - Starting data curation for ETH-USD on TSLA
+2025-09-17 19:35:05,028 - INFO - Fetching structured data for ETH-USD on TSLA
+2025-09-17 19:35:05,969 - INFO - Successfully retrieved 5 days of data for ETH-USD via Yahoo chart API
+2025-09-17 19:35:05,969 - INFO - Fetching unstructured data (news) for ETH-USD
+2025-09-17 19:35:07,971 - INFO - Retrieved news for 17 different dates
+2025-09-17 19:35:07,975 - INFO - Successfully curated 5 data points for ETH-USD
+2025-09-17 19:35:07,978 - INFO - Data saved to output\csv\demo_ETH_USD.csv
+2025-09-17 19:35:07,980 - INFO - Data saved to output\json\demo_ETH_USD.json
+2025-09-17 19:39:21,450 - INFO - Starting data curation for MSFT on AAPL
+2025-09-17 19:39:21,450 - INFO - Fetching structured data for MSFT on AAPL
+2025-09-17 19:39:22,445 - INFO - Successfully retrieved 5 days of data for MSFT via Yahoo chart API
+2025-09-17 19:39:22,446 - INFO - Fetching unstructured data (news) for MSFT
+2025-09-17 19:39:25,179 - INFO - Retrieved news for 8 different dates
+2025-09-17 19:39:25,181 - INFO - Successfully curated 5 data points for MSFT
+2025-09-17 19:39:25,183 - INFO - Data saved to output\csv\demo_MSFT.csv
+2025-09-17 19:39:25,188 - INFO - Data saved to output\json\demo_MSFT.json
+2025-09-17 19:40:58,547 - INFO - Starting data curation for BTC-USD on NASDAQ, Crypto
+2025-09-17 19:40:58,548 - INFO - Fetching structured data for BTC-USD on NASDAQ, Crypto
+2025-09-17 19:40:59,465 - INFO - Successfully retrieved 5 days of data for BTC-USD via Yahoo chart API
+2025-09-17 19:40:59,466 - INFO - Fetching unstructured data (news) for BTC-USD
+2025-09-17 19:41:02,243 - INFO - Retrieved news for 15 different dates
+2025-09-17 19:41:02,245 - INFO - Successfully curated 5 data points for BTC-USD
+2025-09-17 19:41:02,248 - INFO - Data saved to output\csv\demo_BTC_USD.csv
+2025-09-17 19:41:02,250 - INFO - Data saved to output\json\demo_BTC_USD.json
+2025-09-17 19:41:03,257 - INFO - Starting data curation for ETH-USD on NASDAQ, Crypto
+2025-09-17 19:41:03,257 - INFO - Fetching structured data for ETH-USD on NASDAQ, Crypto
+2025-09-17 19:41:04,383 - INFO - Successfully retrieved 5 days of data for ETH-USD via Yahoo chart API
+2025-09-17 19:41:04,383 - INFO - Fetching unstructured data (news) for ETH-USD
+2025-09-17 19:41:06,429 - INFO - Retrieved news for 17 different dates
+2025-09-17 19:41:06,433 - INFO - Successfully curated 5 data points for ETH-USD
+2025-09-17 19:41:06,437 - INFO - Data saved to output\csv\demo_ETH_USD.csv
+2025-09-17 19:41:06,438 - INFO - Data saved to output\json\demo_ETH_USD.json
+2025-09-17 19:41:07,447 - INFO - Starting data curation for MSFT on NASDAQ, Crypto
+2025-09-17 19:41:07,447 - INFO - Fetching structured data for MSFT on NASDAQ, Crypto
+2025-09-17 19:41:08,399 - INFO - Successfully retrieved 5 days of data for MSFT via Yahoo chart API
+2025-09-17 19:41:08,399 - INFO - Fetching unstructured data (news) for MSFT
+2025-09-17 19:41:09,143 - INFO - Retrieved news for 8 different dates
+2025-09-17 19:41:09,145 - INFO - Successfully curated 5 data points for MSFT
+2025-09-17 19:41:09,147 - INFO - Data saved to output\csv\demo_MSFT.csv
+2025-09-17 19:41:09,148 - INFO - Data saved to output\json\demo_MSFT.json
+2025-09-17 21:12:52,189 - INFO - Starting data curation for AAPL on NASDAQ
+2025-09-17 21:12:52,190 - INFO - Fetching structured data for AAPL on NASDAQ
+2025-09-17 21:12:54,260 - INFO - Successfully retrieved 10 days of data for AAPL via Yahoo chart API
+2025-09-17 21:12:54,260 - INFO - Fetching unstructured data (news) for AAPL
+2025-09-17 21:12:57,955 - INFO - Retrieved news for 7 different dates
+2025-09-17 21:12:57,968 - INFO - Successfully curated 10 data points for AAPL
+2025-09-17 21:12:57,971 - INFO - Data saved to output\csv\demo_AAPL.csv
+2025-09-17 21:12:57,972 - INFO - Data saved to output\json\demo_AAPL.json
+2025-09-17 21:12:58,980 - INFO - Starting data curation for TSLA on NASDAQ
+2025-09-17 21:12:58,981 - INFO - Fetching structured data for TSLA on NASDAQ
+2025-09-17 21:12:59,946 - INFO - Successfully retrieved 10 days of data for TSLA via Yahoo chart API
+2025-09-17 21:12:59,946 - INFO - Fetching unstructured data (news) for TSLA
+2025-09-17 21:13:01,932 - INFO - Retrieved news for 7 different dates
+2025-09-17 21:13:01,934 - INFO - Successfully curated 10 data points for TSLA
+2025-09-17 21:13:01,936 - INFO - Data saved to output\csv\demo_TSLA.csv
+2025-09-17 21:13:01,937 - INFO - Data saved to output\json\demo_TSLA.json
+2025-09-17 21:13:19,158 - INFO - Starting data curation for BTC-USD on Crypto
+2025-09-17 21:13:19,158 - INFO - Fetching structured data for BTC-USD on Crypto
+2025-09-17 21:13:20,101 - INFO - Successfully retrieved 10 days of data for BTC-USD via Yahoo chart API
+2025-09-17 21:13:20,102 - INFO - Fetching unstructured data (news) for BTC-USD
+2025-09-17 21:13:22,301 - INFO - Retrieved news for 16 different dates
+2025-09-17 21:13:22,304 - INFO - Successfully curated 10 data points for BTC-USD
+2025-09-17 21:13:22,306 - INFO - Data saved to output\csv\demo_BTC_USD.csv
+2025-09-17 21:13:22,308 - INFO - Data saved to output\json\demo_BTC_USD.json
