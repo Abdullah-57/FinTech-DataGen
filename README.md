@@ -1,112 +1,191 @@
 # FinTech DataGen 💰📊
 
-*A Synthetic Financial Data Generator for FinTech Applications*  
-**🚧 Work in Progress – Phase 1 (Data Generation Only)**
+*Complete FinTech Application with React.js, Flask, MongoDB, and Machine Learning*
 
 ---
 
-## 📌 Overview
+## 🏗️ Tech Stack
 
-**FinTech DataGen** is the first phase of a larger FinTech platform project.  
-This module focuses on generating **synthetic financial datasets**, such as:
+### 🖥️ Frontend (User Interface)
+* **Framework**: React.js
+* **Routing**: React Router DOM
+* **HTTP Client**: Axios
+* **Styling**: CSS3
 
-- User profiles (demographics, IDs, attributes)
-- Transactional data (timestamps, amounts, categories, merchants)
-- Spending behavior and patterns
+### ⚙️ Backend
+* **Framework**: Flask (Python)
+* **CORS**: Flask-CORS
+* **Environment**: python-dotenv
 
-The goal of this phase is to create **realistic, scalable mock datasets** that can be used for:
+### 🧠 Machine Learning Logic
+* **Language**: Python
+* **Libraries**: scikit-learn, pandas, numpy
+* **Models**: RandomForestRegressor
 
-- **Testing** FinTech systems
-- **Training** ML forecasting models
-- **Simulating** real-world scenarios without privacy concerns
-
-Future phases will build upon this foundation to add **forecasting models, APIs, database storage, and a full frontend application.**
+### 🗄️ Database (Storage Layer)
+* **Database**: MongoDB
+* **Driver**: PyMongo
+* **Connection**: MongoDB Atlas
 
 ---
 
-## 🧰 Tech Stack
+## 📁 Project Structure
 
-| Layer | Technology |
-| --- | --- |
-| **Language** | Python 3.x |
-| **Libraries** | Pandas, NumPy, Faker, Random |
-| **Output** | CSV / JSON synthetic datasets |
+```
+FinTech-DataGen/
+├── frontend/                 # React.js Frontend
+│   ├── public/
+│   │   └── index.html
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── Dashboard.js
+│   │   │   ├── DataGenerator.js
+│   │   │   └── Analytics.js
+│   │   ├── App.js
+│   │   ├── App.css
+│   │   ├── index.js
+│   │   └── index.css
+│   └── package.json
+├── backend/                  # Flask Backend
+│   ├── database/
+│   │   ├── __init__.py
+│   │   └── mongodb.py
+│   ├── ml_models/
+│   │   ├── __init__.py
+│   │   ├── predictor.py
+│   │   └── feature_engineering.py
+│   ├── app.py
+│   └── requirements.txt
+├── fintech_data_curator.py   # Original data curator
+├── env.example              # Environment variables template
+└── README.md
+```
 
 ---
 
 ## 🚀 Getting Started
 
-### 1️⃣ Clone the Repository
-```bash
-git clone https://github.com/your-username/FinTech-DataGen.git
-cd FinTech-DataGen
-````
+### Prerequisites
+- Node.js (v14 or higher)
+- Python 3.8+
+- MongoDB Atlas account
 
-### 2️⃣ Install Dependencies
+### 1️⃣ Environment Setup
+
+Create a `.env` file in the backend directory:
+```bash
+cp env.example backend/.env
+```
+
+Edit the `.env` file with your MongoDB credentials:
+```
+MONGOURI=your_mongodb_connection_string
+PORT=5000
+FLASK_ENV=development
+FLASK_DEBUG=True
+```
+
+### 2️⃣ Backend Setup
 
 ```bash
+cd backend
 pip install -r requirements.txt
+python app.py
 ```
 
-### 3️⃣ Run the Generator
+The backend will start on `http://localhost:5000`
+
+### 3️⃣ Frontend Setup
 
 ```bash
-python generator.py
+cd frontend
+npm install
+npm start
 ```
 
-By default, it will create a dataset in the `output/` folder.
+The frontend will start on `http://localhost:3000`
 
 ---
 
-## 📂 Folder Structure (Phase 1)
+## 🔧 API Endpoints
 
-```bash
-/FinTech-DataGen
-├── generator.py        # Main script for data generation
-├── requirements.txt    # Python dependencies
-├── output/             # Generated CSV/JSON files
-└── README.md           # Project documentation
-```
+### Health Check
+- `GET /api/health` - Check backend and database connectivity
 
----
+### Data Generation
+- `POST /api/generate` - Generate financial dataset
+- `GET /api/datasets` - Get all datasets
+- `GET /api/datasets/<id>` - Get specific dataset
 
-## 🧪 Example Output
-
-**Sample Transaction Record:**
-
-```json
-{
-  "transaction_id": "TXN-10293",
-  "user_id": "USR-58",
-  "timestamp": "2025-09-13 14:35:22",
-  "amount": 245.75,
-  "merchant": "Amazon",
-  "category": "Shopping",
-  "payment_method": "Credit Card"
-}
-```
+### Analytics & Predictions
+- `GET /api/analytics` - Get analytics data
+- `POST /api/predict` - Make financial prediction
 
 ---
 
-## 🎯 Future Roadmap
+## 🧪 Testing the Application
 
-* 🔜 **Phase 2** – Database integration (PostgreSQL / MongoDB)
-* 🔜 **Phase 3** – Backend APIs (FastAPI / Flask)
-* 🔜 **Phase 4** – ML models for financial forecasting
-* 🔜 **Phase 5** – React-based frontend dashboard
+1. **Start Backend**: `cd backend && python app.py`
+2. **Start Frontend**: `cd frontend && npm start`
+3. **Open Browser**: Navigate to `http://localhost:3000`
+4. **Test Features**:
+   - Check system status on Dashboard
+   - Generate sample financial data
+   - View analytics and predictions
 
 ---
 
-## 📚 License
+## 📊 Features
+
+### ✅ Implemented
+- React.js frontend with routing
+- Flask backend with REST API
+- MongoDB integration
+- Machine learning model structure
+- Data generation using existing curator
+- Health check endpoints
+- Basic analytics dashboard
+
+### 🔄 In Development
+- Advanced ML model training
+- Real-time data visualization
+- User authentication
+- Data export functionality
+- Performance optimization
+
+---
+
+## 🛠️ Development Notes
+
+This is a **boilerplate setup** to test the complete tech stack. The application includes:
+
+- **Frontend**: React components for Dashboard, Data Generator, and Analytics
+- **Backend**: Flask API with MongoDB integration
+- **ML Models**: Basic structure for financial prediction models
+- **Database**: MongoDB connection and data models
+
+The existing `fintech_data_curator.py` is integrated into the backend for data generation.
+
+---
+
+## 📚 Next Steps
+
+1. **Test the setup** by running both frontend and backend
+2. **Verify MongoDB connection** through the health check
+3. **Generate sample data** using the Data Generator
+4. **Implement additional features** as needed
+
+---
+
+## 📄 License
 
 MIT License — free to use and modify with credit.
-*Note*: This is a university course project under academic guidelines.
 
 ---
 
 ## ✨ Credits
 
-**Author**: Abdullah Daoud
+**Author**: Abdullah Daoud  
 **Institution**: FAST NUCES, BS Software Engineering
 
-Stay tuned — this is just Phase 1 of the full **FinTech-DatGen** FinTech platform! 🚀
+🚀 **Ready to build the future of FinTech!**
