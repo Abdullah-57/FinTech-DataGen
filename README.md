@@ -56,7 +56,7 @@ FinTech-DataGen/
 │   │   └── feature_engineering.py
 │   ├── app.py
 │   └── requirements.txt
-├── fintech_data_curator.py   # Original data curator
+│   └── fintech_data_curator.py   # Data curator
 ├── env.example              # Environment variables template
 └── README.md
 ```
@@ -164,7 +164,7 @@ This is a **boilerplate setup** to test the complete tech stack. The application
 - **ML Models**: Basic structure for financial prediction models
 - **Database**: MongoDB connection and data models
 
-The existing `fintech_data_curator.py` is integrated into the backend for data generation.
+The `fintech_data_curator.py` is now located in the backend directory and integrated for data generation.
 
 ---
 

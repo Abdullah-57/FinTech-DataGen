@@ -35,7 +35,7 @@ logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.FileHandler('fintech_scraper.log'),
+        logging.FileHandler(os.path.join(os.path.dirname(__file__), 'fintech_scraper.log')),
         logging.StreamHandler()
     ]
 )
@@ -626,22 +626,27 @@ class FinTechDataCurator:
                 writer.writeheader()
                 
                 for item in data:
+                    # Properly format news headlines for CSV
+                    news_text = ' | '.join(item.news_headlines) if item.news_headlines else ''
+                    # Replace problematic characters that could break CSV formatting
+                    news_text = news_text.replace('\n', ' ').replace('\r', ' ').replace('"', '""')
+                    
                     writer.writerow({
                         'symbol': item.symbol,
                         'exchange': item.exchange,
                         'date': item.date,
-                        'open_price': item.open_price,
-                        'high_price': item.high_price,
-                        'low_price': item.low_price,
-                        'close_price': item.close_price,
-                        'volume': item.volume,
-                        'daily_return': item.daily_return,
-                        'volatility': item.volatility,
-                        'sma_5': item.sma_5,
-                        'sma_20': item.sma_20,
-                        'rsi': item.rsi,
-                        'news_headlines': ' | '.join(item.news_headlines),
-                        'news_sentiment_score': item.news_sentiment_score
+                        'open_price': round(item.open_price, 4) if not pd.isna(item.open_price) else '',
+                        'high_price': round(item.high_price, 4) if not pd.isna(item.high_price) else '',
+                        'low_price': round(item.low_price, 4) if not pd.isna(item.low_price) else '',
+                        'close_price': round(item.close_price, 4) if not pd.isna(item.close_price) else '',
+                        'volume': int(item.volume) if not pd.isna(item.volume) else 0,
+                        'daily_return': round(item.daily_return, 6) if not pd.isna(item.daily_return) else 0,
+                        'volatility': round(item.volatility, 6) if not pd.isna(item.volatility) else 0,
+                        'sma_5': round(item.sma_5, 4) if not pd.isna(item.sma_5) else '',
+                        'sma_20': round(item.sma_20, 4) if not pd.isna(item.sma_20) else '',
+                        'rsi': round(item.rsi, 2) if not pd.isna(item.rsi) else '',
+                        'news_headlines': news_text,
+                        'news_sentiment_score': round(item.news_sentiment_score, 3) if not pd.isna(item.news_sentiment_score) else 0
                     })
             
             self.logger.info(f"Data saved to {filename}")
@@ -663,25 +668,36 @@ class FinTechDataCurator:
             os.makedirs(os.path.dirname(filename) or '.', exist_ok=True)
             json_data = []
             for item in data:
+                # Helper function to handle NaN values for JSON serialization
+                def safe_float(value):
+                    if pd.isna(value):
+                        return None
+                    return round(float(value), 4) if isinstance(value, (int, float)) else value
+                
+                def safe_int(value):
+                    if pd.isna(value):
+                        return 0
+                    return int(value) if isinstance(value, (int, float)) else value
+                
                 json_data.append({
                     'symbol': item.symbol,
                     'exchange': item.exchange,
                     'date': item.date,
                     'structured_data': {
-                        'open_price': item.open_price,
-                        'high_price': item.high_price,
-                        'low_price': item.low_price,
-                        'close_price': item.close_price,
-                        'volume': item.volume,
-                        'daily_return': item.daily_return,
-                        'volatility': item.volatility,
-                        'sma_5': item.sma_5,
-                        'sma_20': item.sma_20,
-                        'rsi': item.rsi
+                        'open_price': safe_float(item.open_price),
+                        'high_price': safe_float(item.high_price),
+                        'low_price': safe_float(item.low_price),
+                        'close_price': safe_float(item.close_price),
+                        'volume': safe_int(item.volume),
+                        'daily_return': round(item.daily_return, 6) if not pd.isna(item.daily_return) else 0,
+                        'volatility': round(item.volatility, 6) if not pd.isna(item.volatility) else 0,
+                        'sma_5': safe_float(item.sma_5),
+                        'sma_20': safe_float(item.sma_20),
+                        'rsi': round(item.rsi, 2) if not pd.isna(item.rsi) else 50
                     },
                     'unstructured_data': {
-                        'news_headlines': item.news_headlines,
-                        'news_sentiment_score': item.news_sentiment_score
+                        'news_headlines': item.news_headlines if item.news_headlines else [],
+                        'news_sentiment_score': round(item.news_sentiment_score, 3) if not pd.isna(item.news_sentiment_score) else 0
                     }
                 })
             

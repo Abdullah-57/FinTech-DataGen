@@ -43,7 +43,7 @@ class MongoDB:
     def save_dataset(self, dataset_data):
         """Save dataset to database"""
         try:
-            if not self.db:
+            if self.db is None:
                 raise Exception("Database not connected")
             
             collection = self.db.datasets
@@ -56,7 +56,7 @@ class MongoDB:
     def get_dataset_by_id(self, dataset_id):
         """Get dataset by ID"""
         try:
-            if not self.db:
+            if self.db is None:
                 raise Exception("Database not connected")
             
             collection = self.db.datasets
@@ -69,7 +69,7 @@ class MongoDB:
     def get_all_datasets(self):
         """Get all datasets"""
         try:
-            if not self.db:
+            if self.db is None:
                 raise Exception("Database not connected")
             
             collection = self.db.datasets
@@ -87,7 +87,7 @@ class MongoDB:
     def get_recent_datasets(self, limit=10):
         """Get recent datasets"""
         try:
-            if not self.db:
+            if self.db is None:
                 raise Exception("Database not connected")
             
             collection = self.db.datasets
@@ -112,7 +112,7 @@ class MongoDB:
     def get_latest_data(self, symbol):
         """Get latest data for a symbol"""
         try:
-            if not self.db:
+            if self.db is None:
                 raise Exception("Database not connected")
             
             collection = self.db.datasets
@@ -128,7 +128,7 @@ class MongoDB:
     def save_prediction(self, prediction_data):
         """Save prediction to database"""
         try:
-            if not self.db:
+            if self.db is None:
                 raise Exception("Database not connected")
             
             collection = self.db.predictions
@@ -141,7 +141,7 @@ class MongoDB:
     def get_recent_predictions(self, limit=10):
         """Get recent predictions"""
         try:
-            if not self.db:
+            if self.db is None:
                 raise Exception("Database not connected")
             
             collection = self.db.predictions
@@ -159,7 +159,7 @@ class MongoDB:
     def count_datasets(self):
         """Count total datasets"""
         try:
-            if not self.db:
+            if self.db is None:
                 return 0
             
             collection = self.db.datasets
@@ -170,7 +170,7 @@ class MongoDB:
     def count_records(self):
         """Count total records across all datasets"""
         try:
-            if not self.db:
+            if self.db is None:
                 return 0
             
             collection = self.db.datasets
@@ -183,7 +183,7 @@ class MongoDB:
     def get_last_generated_date(self):
         """Get last generated date"""
         try:
-            if not self.db:
+            if self.db is None:
                 return None
             
             collection = self.db.datasets

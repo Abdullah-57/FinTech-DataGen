@@ -1,0 +1,227 @@
+2025-09-28 21:06:53,034 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.100.38:5000
+2025-09-28 21:06:53,035 - INFO - [33mPress CTRL+C to quit[0m
+2025-09-28 21:06:53,061 - INFO -  * Restarting with watchdog (windowsapi)
+2025-09-28 21:06:56,484 - WARNING -  * Debugger is active!
+2025-09-28 21:06:56,511 - INFO -  * Debugger PIN: 879-948-609
+2025-09-28 21:08:21,013 - INFO - 127.0.0.1 - - [28/Sep/2025 21:08:21] "GET /api/health HTTP/1.1" 200 -
+2025-09-28 21:08:21,508 - INFO - 127.0.0.1 - - [28/Sep/2025 21:08:21] "GET /api/health HTTP/1.1" 200 -
+2025-09-28 21:08:47,132 - INFO -  * Detected change in 'C:\\Users\\Admin\\OneDrive\\Desktop\\FinTech-DataGen\\backend\\app.py', reloading
+2025-09-28 21:08:48,113 - INFO -  * Restarting with watchdog (windowsapi)
+2025-09-28 21:08:51,838 - WARNING -  * Debugger is active!
+2025-09-28 21:08:51,844 - INFO -  * Debugger PIN: 879-948-609
+2025-09-28 21:08:52,793 - INFO - 127.0.0.1 - - [28/Sep/2025 21:08:52] "GET /api/health HTTP/1.1" 200 -
+2025-09-28 21:09:14,235 - INFO - Starting data curation for AAPL on Crypto
+2025-09-28 21:09:14,236 - INFO - Fetching structured data for AAPL on Crypto
+2025-09-28 21:09:15,376 - INFO - Successfully retrieved 15 days of data for AAPL via Yahoo chart API
+2025-09-28 21:09:15,377 - INFO - Fetching unstructured data (news) for AAPL
+2025-09-28 21:09:16,388 - WARNING - Could not fetch Yahoo Finance news via API: Expecting value: line 1 column 1 (char 0)
+2025-09-28 21:09:17,980 - WARNING - Web scraping fallback also failed: 404 Client Error: Not Found for url: https://finance.yahoo.com/quote/AAPL/news/
+2025-09-28 21:09:18,972 - INFO - Retrieved news for 9 different dates
+2025-09-28 21:09:18,986 - INFO - Successfully curated 15 data points for AAPL
+2025-09-28 21:09:18,991 - INFO - 127.0.0.1 - - [28/Sep/2025 21:09:18] "[35m[1mPOST /api/generate HTTP/1.1[0m" 500 -
+2025-09-28 21:12:06,135 - INFO -  * Detected change in 'C:\\Users\\Admin\\OneDrive\\Desktop\\FinTech-DataGen\\backend\\database\\mongodb.py', reloading
+2025-09-28 21:12:06,136 - INFO -  * Detected change in 'C:\\Users\\Admin\\OneDrive\\Desktop\\FinTech-DataGen\\backend\\database\\mongodb.py', reloading
+2025-09-28 21:12:06,137 - INFO -  * Detected change in 'C:\\Users\\Admin\\OneDrive\\Desktop\\FinTech-DataGen\\backend\\database\\mongodb.py', reloading
+2025-09-28 21:12:07,781 - INFO -  * Restarting with watchdog (windowsapi)
+2025-09-28 21:12:13,018 - WARNING -  * Debugger is active!
+2025-09-28 21:12:13,030 - INFO -  * Debugger PIN: 879-948-609
+2025-09-28 21:12:14,477 - INFO -  * Detected change in 'C:\\Users\\Admin\\OneDrive\\Desktop\\FinTech-DataGen\\backend\\database\\mongodb.py', reloading
+2025-09-28 21:12:14,479 - INFO -  * Detected change in 'C:\\Users\\Admin\\OneDrive\\Desktop\\FinTech-DataGen\\backend\\database\\mongodb.py', reloading
+2025-09-28 21:12:15,636 - INFO -  * Restarting with watchdog (windowsapi)
+2025-09-28 21:12:20,113 - WARNING -  * Debugger is active!
+2025-09-28 21:12:20,127 - INFO -  * Debugger PIN: 879-948-609
+2025-09-28 21:12:23,540 - INFO -  * Detected change in 'C:\\Users\\Admin\\OneDrive\\Desktop\\FinTech-DataGen\\backend\\database\\mongodb.py', reloading
+2025-09-28 21:12:23,540 - INFO -  * Detected change in 'C:\\Users\\Admin\\OneDrive\\Desktop\\FinTech-DataGen\\backend\\database\\mongodb.py', reloading
+2025-09-28 21:12:24,639 - INFO -  * Restarting with watchdog (windowsapi)
+2025-09-28 21:12:29,500 - WARNING -  * Debugger is active!
+2025-09-28 21:12:29,515 - INFO -  * Debugger PIN: 879-948-609
+2025-09-28 21:12:33,857 - INFO -  * Detected change in 'C:\\Users\\Admin\\OneDrive\\Desktop\\FinTech-DataGen\\backend\\database\\mongodb.py', reloading
+2025-09-28 21:12:33,859 - INFO -  * Detected change in 'C:\\Users\\Admin\\OneDrive\\Desktop\\FinTech-DataGen\\backend\\database\\mongodb.py', reloading
+2025-09-28 21:12:35,043 - INFO -  * Restarting with watchdog (windowsapi)
+2025-09-28 21:12:40,001 - WARNING -  * Debugger is active!
+2025-09-28 21:12:40,027 - INFO -  * Debugger PIN: 879-948-609
+2025-09-28 21:12:42,626 - INFO -  * Detected change in 'C:\\Users\\Admin\\OneDrive\\Desktop\\FinTech-DataGen\\backend\\database\\mongodb.py', reloading
+2025-09-28 21:12:42,637 - INFO -  * Detected change in 'C:\\Users\\Admin\\OneDrive\\Desktop\\FinTech-DataGen\\backend\\database\\mongodb.py', reloading
+2025-09-28 21:12:43,910 - INFO -  * Restarting with watchdog (windowsapi)
+2025-09-28 21:12:48,909 - WARNING -  * Debugger is active!
+2025-09-28 21:12:48,924 - INFO -  * Debugger PIN: 879-948-609
+2025-09-28 21:13:18,586 - INFO -  * Detected change in 'C:\\Users\\Admin\\OneDrive\\Desktop\\FinTech-DataGen\\backend\\fintech_data_curator.py', reloading
+2025-09-28 21:13:19,818 - INFO -  * Restarting with watchdog (windowsapi)
+2025-09-28 21:13:24,199 - WARNING -  * Debugger is active!
+2025-09-28 21:13:24,209 - INFO -  * Debugger PIN: 879-948-609
+2025-09-28 21:13:27,356 - INFO -  * Detected change in 'C:\\Users\\Admin\\OneDrive\\Desktop\\FinTech-DataGen\\backend\\app.py', reloading
+2025-09-28 21:13:27,357 - INFO -  * Detected change in 'C:\\Users\\Admin\\OneDrive\\Desktop\\FinTech-DataGen\\backend\\app.py', reloading
+2025-09-28 21:13:27,357 - INFO -  * Detected change in 'C:\\Users\\Admin\\OneDrive\\Desktop\\FinTech-DataGen\\backend\\app.py', reloading
+2025-09-28 21:13:29,151 - INFO -  * Restarting with watchdog (windowsapi)
+2025-09-28 21:13:33,818 - WARNING -  * Debugger is active!
+2025-09-28 21:13:33,830 - INFO -  * Debugger PIN: 879-948-609
+2025-09-28 21:13:35,085 - INFO -  * Detected change in 'C:\\Users\\Admin\\OneDrive\\Desktop\\FinTech-DataGen\\backend\\app.py', reloading
+2025-09-28 21:13:35,087 - INFO -  * Detected change in 'C:\\Users\\Admin\\OneDrive\\Desktop\\FinTech-DataGen\\backend\\app.py', reloading
+2025-09-28 21:13:35,087 - INFO -  * Detected change in 'C:\\Users\\Admin\\OneDrive\\Desktop\\FinTech-DataGen\\backend\\app.py', reloading
+2025-09-28 21:13:36,382 - INFO -  * Restarting with watchdog (windowsapi)
+2025-09-28 21:13:41,553 - WARNING -  * Debugger is active!
+2025-09-28 21:13:41,567 - INFO -  * Debugger PIN: 879-948-609
+2025-09-28 21:13:42,742 - INFO -  * Detected change in 'C:\\Users\\Admin\\OneDrive\\Desktop\\FinTech-DataGen\\backend\\app.py', reloading
+2025-09-28 21:13:42,744 - INFO -  * Detected change in 'C:\\Users\\Admin\\OneDrive\\Desktop\\FinTech-DataGen\\backend\\app.py', reloading
+2025-09-28 21:13:44,451 - INFO -  * Restarting with watchdog (windowsapi)
+2025-09-28 21:13:49,451 - WARNING -  * Debugger is active!
+2025-09-28 21:13:49,464 - INFO -  * Debugger PIN: 879-948-609
+2025-09-28 21:13:53,409 - INFO -  * Detected change in 'C:\\Users\\Admin\\OneDrive\\Desktop\\FinTech-DataGen\\backend\\app.py', reloading
+2025-09-28 21:13:53,410 - INFO -  * Detected change in 'C:\\Users\\Admin\\OneDrive\\Desktop\\FinTech-DataGen\\backend\\app.py', reloading
+2025-09-28 21:13:54,560 - INFO -  * Restarting with watchdog (windowsapi)
+2025-09-28 21:13:59,364 - WARNING -  * Debugger is active!
+2025-09-28 21:13:59,377 - INFO -  * Debugger PIN: 879-948-609
+2025-09-28 21:14:02,083 - INFO -  * Detected change in 'C:\\Users\\Admin\\OneDrive\\Desktop\\FinTech-DataGen\\backend\\app.py', reloading
+2025-09-28 21:14:02,084 - INFO -  * Detected change in 'C:\\Users\\Admin\\OneDrive\\Desktop\\FinTech-DataGen\\backend\\app.py', reloading
+2025-09-28 21:14:03,057 - INFO -  * Restarting with watchdog (windowsapi)
+2025-09-28 21:14:07,371 - WARNING -  * Debugger is active!
+2025-09-28 21:14:07,378 - INFO -  * Debugger PIN: 879-948-609
+2025-09-28 21:14:13,958 - INFO -  * Detected change in 'C:\\Users\\Admin\\OneDrive\\Desktop\\FinTech-DataGen\\backend\\app.py', reloading
+2025-09-28 21:14:13,958 - INFO -  * Detected change in 'C:\\Users\\Admin\\OneDrive\\Desktop\\FinTech-DataGen\\backend\\app.py', reloading
+2025-09-28 21:14:14,975 - INFO -  * Restarting with watchdog (windowsapi)
+2025-09-28 21:14:19,295 - WARNING -  * Debugger is active!
+2025-09-28 21:14:19,310 - INFO -  * Debugger PIN: 879-948-609
+2025-09-28 21:14:30,408 - INFO -  * Detected change in 'C:\\Users\\Admin\\OneDrive\\Desktop\\FinTech-DataGen\\backend\\app.py', reloading
+2025-09-28 21:14:30,410 - INFO -  * Detected change in 'C:\\Users\\Admin\\OneDrive\\Desktop\\FinTech-DataGen\\backend\\app.py', reloading
+2025-09-28 21:14:32,402 - INFO -  * Restarting with watchdog (windowsapi)
+2025-09-28 21:14:37,783 - WARNING -  * Debugger is active!
+2025-09-28 21:14:37,792 - INFO -  * Debugger PIN: 879-948-609
+2025-09-28 21:14:59,389 - INFO -  * Detected change in 'C:\\Users\\Admin\\OneDrive\\Desktop\\FinTech-DataGen\\backend\\test_integration.py', reloading
+2025-09-28 21:14:59,693 - INFO -  * Detected change in 'C:\\Users\\Admin\\OneDrive\\Desktop\\FinTech-DataGen\\backend\\test_integration.py', reloading
+2025-09-28 21:14:59,695 - INFO -  * Detected change in 'C:\\Users\\Admin\\OneDrive\\Desktop\\FinTech-DataGen\\backend\\test_integration.py', reloading
+2025-09-28 21:15:00,643 - INFO -  * Restarting with watchdog (windowsapi)
+2025-09-28 21:15:04,736 - WARNING -  * Debugger is active!
+2025-09-28 21:15:04,744 - INFO -  * Debugger PIN: 879-948-609
+2025-09-28 21:15:25,946 - INFO -  * Detected change in 'C:\\Users\\Admin\\OneDrive\\Desktop\\FinTech-DataGen\\backend\\test_integration.py', reloading
+2025-09-28 21:15:25,982 - INFO -  * Detected change in 'C:\\Users\\Admin\\OneDrive\\Desktop\\FinTech-DataGen\\backend\\test_integration.py', reloading
+2025-09-28 21:15:27,624 - INFO -  * Restarting with watchdog (windowsapi)
+2025-09-28 21:15:32,187 - WARNING -  * Debugger is active!
+2025-09-28 21:15:32,196 - INFO -  * Debugger PIN: 879-948-609
+2025-09-28 21:15:35,287 - INFO -  * Detected change in 'C:\\Users\\Admin\\OneDrive\\Desktop\\FinTech-DataGen\\backend\\fintech_data_curator.py', reloading
+2025-09-28 21:15:35,289 - INFO -  * Detected change in 'C:\\Users\\Admin\\OneDrive\\Desktop\\FinTech-DataGen\\backend\\database\\mongodb.py', reloading
+2025-09-28 21:15:35,292 - INFO -  * Detected change in 'C:\\Users\\Admin\\OneDrive\\Desktop\\FinTech-DataGen\\backend\\app.py', reloading
+2025-09-28 21:15:35,294 - INFO -  * Detected change in 'C:\\Users\\Admin\\OneDrive\\Desktop\\FinTech-DataGen\\backend\\database\\mongodb.py', reloading
+2025-09-28 21:15:35,295 - INFO -  * Detected change in 'C:\\Users\\Admin\\OneDrive\\Desktop\\FinTech-DataGen\\backend\\fintech_data_curator.py', reloading
+2025-09-28 21:15:35,296 - INFO -  * Detected change in 'C:\\Users\\Admin\\OneDrive\\Desktop\\FinTech-DataGen\\backend\\app.py', reloading
+2025-09-28 21:15:35,297 - INFO -  * Detected change in 'C:\\Users\\Admin\\OneDrive\\Desktop\\FinTech-DataGen\\backend\\app.py', reloading
+2025-09-28 21:15:35,298 - INFO -  * Detected change in 'C:\\Users\\Admin\\OneDrive\\Desktop\\FinTech-DataGen\\backend\\database\\mongodb.py', reloading
+2025-09-28 21:15:36,737 - INFO -  * Restarting with watchdog (windowsapi)
+2025-09-28 21:15:40,514 - WARNING -  * Debugger is active!
+2025-09-28 21:15:40,521 - INFO -  * Debugger PIN: 879-948-609
+2025-09-28 21:16:17,390 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.100.38:5000
+2025-09-28 21:16:17,391 - INFO - [33mPress CTRL+C to quit[0m
+2025-09-28 21:16:17,417 - INFO -  * Restarting with watchdog (windowsapi)
+2025-09-28 21:16:20,965 - WARNING -  * Debugger is active!
+2025-09-28 21:16:20,976 - INFO -  * Debugger PIN: 879-948-609
+2025-09-28 21:16:35,611 - INFO - 127.0.0.1 - - [28/Sep/2025 21:16:35] "GET /api/health HTTP/1.1" 200 -
+2025-09-28 21:16:35,883 - INFO - 127.0.0.1 - - [28/Sep/2025 21:16:35] "GET /api/health HTTP/1.1" 200 -
+2025-09-28 21:16:56,073 - INFO - 127.0.0.1 - - [28/Sep/2025 21:16:56] "GET /api/health HTTP/1.1" 200 -
+2025-09-28 21:16:56,348 - INFO - 127.0.0.1 - - [28/Sep/2025 21:16:56] "GET /api/health HTTP/1.1" 200 -
+2025-09-28 21:17:13,072 - INFO - Starting data curation for AAPL on Crypto
+2025-09-28 21:17:13,073 - INFO - Fetching structured data for AAPL on Crypto
+2025-09-28 21:17:14,268 - INFO - Successfully retrieved 15 days of data for AAPL via Yahoo chart API
+2025-09-28 21:17:14,268 - INFO - Fetching unstructured data (news) for AAPL
+2025-09-28 21:17:15,218 - WARNING - Could not fetch Yahoo Finance news via API: Expecting value: line 1 column 1 (char 0)
+2025-09-28 21:17:17,067 - WARNING - Web scraping fallback also failed: 404 Client Error: Not Found for url: https://finance.yahoo.com/quote/AAPL/news/
+2025-09-28 21:17:18,694 - INFO - Retrieved news for 8 different dates
+2025-09-28 21:17:18,701 - INFO - Successfully curated 15 data points for AAPL
+2025-09-28 21:17:18,809 - INFO - 127.0.0.1 - - [28/Sep/2025 21:17:18] "[35m[1mPOST /api/generate HTTP/1.1[0m" 201 -
+2025-09-28 21:17:25,420 - INFO - 127.0.0.1 - - [28/Sep/2025 21:17:25] "GET /api/datasets/68d95f8ed1ba2050a63ce167/json HTTP/1.1" 200 -
+2025-09-28 21:17:40,781 - INFO - 127.0.0.1 - - [28/Sep/2025 21:17:40] "GET /api/datasets/68d95f8ed1ba2050a63ce167/csv HTTP/1.1" 200 -
+2025-09-28 21:20:21,668 - INFO -  * Detected change in 'C:\\Users\\Admin\\OneDrive\\Desktop\\FinTech-DataGen\\backend\\fintech_data_curator.py', reloading
+2025-09-28 21:20:21,669 - INFO -  * Detected change in 'C:\\Users\\Admin\\OneDrive\\Desktop\\FinTech-DataGen\\backend\\fintech_data_curator.py', reloading
+2025-09-28 21:20:23,816 - INFO -  * Restarting with watchdog (windowsapi)
+2025-09-28 21:20:30,802 - WARNING -  * Debugger is active!
+2025-09-28 21:20:30,813 - INFO -  * Debugger PIN: 879-948-609
+2025-09-28 21:20:33,810 - INFO -  * Detected change in 'C:\\Users\\Admin\\OneDrive\\Desktop\\FinTech-DataGen\\backend\\fintech_data_curator.py', reloading
+2025-09-28 21:20:33,811 - INFO -  * Detected change in 'C:\\Users\\Admin\\OneDrive\\Desktop\\FinTech-DataGen\\backend\\fintech_data_curator.py', reloading
+2025-09-28 21:20:33,811 - INFO -  * Detected change in 'C:\\Users\\Admin\\OneDrive\\Desktop\\FinTech-DataGen\\backend\\fintech_data_curator.py', reloading
+2025-09-28 21:20:35,003 - INFO -  * Restarting with watchdog (windowsapi)
+2025-09-28 21:20:39,564 - WARNING -  * Debugger is active!
+2025-09-28 21:20:39,580 - INFO -  * Debugger PIN: 879-948-609
+2025-09-28 21:20:48,255 - INFO -  * Detected change in 'C:\\Users\\Admin\\OneDrive\\Desktop\\FinTech-DataGen\\backend\\app.py', reloading
+2025-09-28 21:20:48,258 - INFO -  * Detected change in 'C:\\Users\\Admin\\OneDrive\\Desktop\\FinTech-DataGen\\backend\\app.py', reloading
+2025-09-28 21:20:48,260 - INFO -  * Detected change in 'C:\\Users\\Admin\\OneDrive\\Desktop\\FinTech-DataGen\\backend\\app.py', reloading
+2025-09-28 21:20:49,332 - INFO -  * Restarting with watchdog (windowsapi)
+2025-09-28 21:20:53,379 - WARNING -  * Debugger is active!
+2025-09-28 21:20:53,392 - INFO -  * Debugger PIN: 879-948-609
+2025-09-28 21:21:06,443 - INFO -  * Detected change in 'C:\\Users\\Admin\\OneDrive\\Desktop\\FinTech-DataGen\\backend\\app.py', reloading
+2025-09-28 21:21:06,444 - INFO -  * Detected change in 'C:\\Users\\Admin\\OneDrive\\Desktop\\FinTech-DataGen\\backend\\app.py', reloading
+2025-09-28 21:21:07,156 - INFO -  * Restarting with watchdog (windowsapi)
+2025-09-28 21:21:12,200 - WARNING -  * Debugger is active!
+2025-09-28 21:21:12,213 - INFO -  * Debugger PIN: 879-948-609
+2025-09-28 21:21:24,664 - INFO -  * Detected change in 'C:\\Users\\Admin\\OneDrive\\Desktop\\FinTech-DataGen\\backend\\app.py', reloading
+2025-09-28 21:21:24,666 - INFO -  * Detected change in 'C:\\Users\\Admin\\OneDrive\\Desktop\\FinTech-DataGen\\backend\\app.py', reloading
+2025-09-28 21:21:25,897 - INFO -  * Restarting with watchdog (windowsapi)
+2025-09-28 21:21:31,275 - WARNING -  * Debugger is active!
+2025-09-28 21:21:31,289 - INFO -  * Debugger PIN: 879-948-609
+2025-09-28 21:21:44,211 - INFO -  * Detected change in 'C:\\Users\\Admin\\OneDrive\\Desktop\\FinTech-DataGen\\backend\\test_formatting.py', reloading
+2025-09-28 21:21:45,130 - INFO -  * Restarting with watchdog (windowsapi)
+2025-09-28 21:21:50,241 - WARNING -  * Debugger is active!
+2025-09-28 21:21:50,257 - INFO -  * Debugger PIN: 879-948-609
+2025-09-28 21:22:00,416 - INFO -  * Detected change in 'C:\\Users\\Admin\\OneDrive\\Desktop\\FinTech-DataGen\\backend\\test_formatting.py', reloading
+2025-09-28 21:22:00,417 - INFO -  * Detected change in 'C:\\Users\\Admin\\OneDrive\\Desktop\\FinTech-DataGen\\backend\\test_formatting.py', reloading
+2025-09-28 21:22:00,529 - INFO -  * Detected change in 'C:\\Users\\Admin\\OneDrive\\Desktop\\FinTech-DataGen\\backend\\test_formatting.py', reloading
+2025-09-28 21:22:01,837 - INFO -  * Restarting with watchdog (windowsapi)
+2025-09-28 21:22:06,754 - WARNING -  * Debugger is active!
+2025-09-28 21:22:06,774 - INFO -  * Debugger PIN: 879-948-609
+2025-09-28 21:22:14,262 - INFO -  * Detected change in 'C:\\Users\\Admin\\OneDrive\\Desktop\\FinTech-DataGen\\backend\\fintech_data_curator.py', reloading
+2025-09-28 21:22:14,263 - INFO -  * Detected change in 'C:\\Users\\Admin\\OneDrive\\Desktop\\FinTech-DataGen\\backend\\fintech_data_curator.py', reloading
+2025-09-28 21:22:14,273 - INFO -  * Detected change in 'C:\\Users\\Admin\\OneDrive\\Desktop\\FinTech-DataGen\\backend\\app.py', reloading
+2025-09-28 21:22:14,275 - INFO -  * Detected change in 'C:\\Users\\Admin\\OneDrive\\Desktop\\FinTech-DataGen\\backend\\app.py', reloading
+2025-09-28 21:22:15,493 - INFO -  * Restarting with watchdog (windowsapi)
+2025-09-28 21:22:19,305 - WARNING -  * Debugger is active!
+2025-09-28 21:22:19,312 - INFO -  * Debugger PIN: 879-948-609
+2025-09-28 21:22:41,546 - INFO -  * Detected change in 'C:\\Users\\Admin\\OneDrive\\Desktop\\FinTech-DataGen\\backend\\fintech_data_curator.py', reloading
+2025-09-28 21:22:41,548 - INFO -  * Detected change in 'C:\\Users\\Admin\\OneDrive\\Desktop\\FinTech-DataGen\\backend\\fintech_data_curator.py', reloading
+2025-09-28 21:22:43,000 - INFO -  * Restarting with watchdog (windowsapi)
+2025-09-28 21:22:49,141 - WARNING -  * Debugger is active!
+2025-09-28 21:22:49,154 - INFO -  * Debugger PIN: 879-948-609
+2025-09-28 21:23:08,239 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.100.38:5000
+2025-09-28 21:23:08,239 - INFO - [33mPress CTRL+C to quit[0m
+2025-09-28 21:23:08,257 - INFO -  * Restarting with watchdog (windowsapi)
+2025-09-28 21:23:11,691 - WARNING -  * Debugger is active!
+2025-09-28 21:23:11,699 - INFO -  * Debugger PIN: 879-948-609
+2025-09-28 21:23:25,372 - INFO - 127.0.0.1 - - [28/Sep/2025 21:23:25] "GET /api/health HTTP/1.1" 200 -
+2025-09-28 21:23:25,659 - INFO - 127.0.0.1 - - [28/Sep/2025 21:23:25] "GET /api/health HTTP/1.1" 200 -
+2025-09-28 21:23:45,536 - INFO - Starting data curation for AAPL on Crypto
+2025-09-28 21:23:45,537 - INFO - Fetching structured data for AAPL on Crypto
+2025-09-28 21:23:46,705 - INFO - Successfully retrieved 15 days of data for AAPL via Yahoo chart API
+2025-09-28 21:23:46,705 - INFO - Fetching unstructured data (news) for AAPL
+2025-09-28 21:23:47,651 - WARNING - Could not fetch Yahoo Finance news via API: Expecting value: line 1 column 1 (char 0)
+2025-09-28 21:23:49,250 - WARNING - Web scraping fallback also failed: 404 Client Error: Not Found for url: https://finance.yahoo.com/quote/AAPL/news/
+2025-09-28 21:23:50,774 - INFO - Retrieved news for 9 different dates
+2025-09-28 21:23:50,780 - INFO - Successfully curated 15 data points for AAPL
+2025-09-28 21:23:50,874 - INFO - 127.0.0.1 - - [28/Sep/2025 21:23:50] "[35m[1mPOST /api/generate HTTP/1.1[0m" 201 -
+2025-09-28 21:23:54,389 - INFO - 127.0.0.1 - - [28/Sep/2025 21:23:54] "GET /api/datasets/68d9611698fff19e44c663f4/csv HTTP/1.1" 200 -
+2025-09-28 21:24:36,048 - INFO - 127.0.0.1 - - [28/Sep/2025 21:24:36] "GET /api/datasets/68d9611698fff19e44c663f4/json HTTP/1.1" 200 -
+2025-09-28 21:26:54,116 - INFO - Starting data curation for BTC-USD on Crypto
+2025-09-28 21:26:54,116 - INFO - Fetching structured data for BTC-USD on Crypto
+2025-09-28 21:26:55,104 - INFO - Successfully retrieved 7 days of data for BTC-USD via Yahoo chart API
+2025-09-28 21:26:55,105 - INFO - Fetching unstructured data (news) for BTC-USD
+2025-09-28 21:26:56,096 - WARNING - Could not fetch Yahoo Finance news via API: Expecting value: line 1 column 1 (char 0)
+2025-09-28 21:26:57,701 - WARNING - Web scraping fallback also failed: 404 Client Error: Not Found for url: https://finance.yahoo.com/quote/BTC-USD/news/
+2025-09-28 21:27:00,166 - INFO - Retrieved news for 16 different dates
+2025-09-28 21:27:00,170 - INFO - Successfully curated 7 data points for BTC-USD
+2025-09-28 21:27:00,330 - INFO - 127.0.0.1 - - [28/Sep/2025 21:27:00] "[35m[1mPOST /api/generate HTTP/1.1[0m" 201 -
+2025-09-28 21:27:03,702 - INFO - 127.0.0.1 - - [28/Sep/2025 21:27:03] "GET /api/datasets/68d961d498fff19e44c663f5/csv HTTP/1.1" 200 -
+2025-09-28 21:28:01,759 - INFO - Starting data curation for TSLA on Crypto
+2025-09-28 21:28:01,760 - INFO - Fetching structured data for TSLA on Crypto
+2025-09-28 21:28:03,855 - INFO - Successfully retrieved 5 days of data for TSLA via Yahoo chart API
+2025-09-28 21:28:03,856 - INFO - Fetching unstructured data (news) for TSLA
+2025-09-28 21:28:04,850 - WARNING - Could not fetch Yahoo Finance news via API: Expecting value: line 1 column 1 (char 0)
+2025-09-28 21:28:06,534 - WARNING - Web scraping fallback also failed: 404 Client Error: Not Found for url: https://finance.yahoo.com/quote/TSLA/news/
+2025-09-28 21:28:08,410 - INFO - Retrieved news for 10 different dates
+2025-09-28 21:28:08,413 - INFO - Successfully curated 5 data points for TSLA
+2025-09-28 21:28:08,489 - INFO - 127.0.0.1 - - [28/Sep/2025 21:28:08] "[35m[1mPOST /api/generate HTTP/1.1[0m" 201 -
+2025-09-28 21:28:15,129 - INFO - 127.0.0.1 - - [28/Sep/2025 21:28:15] "GET /api/datasets/68d9621898fff19e44c663f6/csv HTTP/1.1" 200 -
+2025-09-28 21:28:17,806 - INFO - 127.0.0.1 - - [28/Sep/2025 21:28:17] "GET /api/datasets/68d9621898fff19e44c663f6/json HTTP/1.1" 200 -
