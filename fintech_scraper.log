@@ -286,3 +286,47 @@
 2025-09-17 21:13:22,304 - INFO - Successfully curated 10 data points for BTC-USD
 2025-09-17 21:13:22,306 - INFO - Data saved to output\csv\demo_BTC_USD.csv
 2025-09-17 21:13:22,308 - INFO - Data saved to output\json\demo_BTC_USD.json
+2025-09-28 17:49:57,969 - INFO - Starting data curation for s on TSLA
+2025-09-28 17:49:57,974 - INFO - Fetching structured data for s on TSLA
+2025-09-28 17:49:58,998 - INFO - Successfully retrieved 7 days of data for s via Yahoo chart API
+2025-09-28 17:49:58,998 - INFO - Fetching unstructured data (news) for s
+2025-09-28 17:50:19,596 - INFO - Starting data curation for TSLA on Crypto
+2025-09-28 17:50:19,596 - INFO - Fetching structured data for TSLA on Crypto
+2025-09-28 17:50:20,549 - INFO - Successfully retrieved 5 days of data for TSLA via Yahoo chart API
+2025-09-28 17:50:20,549 - INFO - Fetching unstructured data (news) for TSLA
+2025-09-28 17:50:24,231 - INFO - Retrieved news for 9 different dates
+2025-09-28 17:50:24,235 - INFO - Successfully curated 5 data points for TSLA
+2025-09-28 17:50:24,238 - INFO - Data saved to output\csv\demo_TSLA.csv
+2025-09-28 17:50:24,239 - INFO - Data saved to output\json\demo_TSLA.json
+2025-09-28 18:46:11,786 - INFO - Starting data curation for BTC-USD on Crypto
+2025-09-28 18:46:11,787 - INFO - Fetching structured data for BTC-USD on Crypto
+2025-09-28 18:46:12,850 - INFO - Successfully retrieved 5 days of data for BTC-USD via Yahoo chart API
+2025-09-28 18:46:12,851 - INFO - Fetching unstructured data (news) for BTC-USD
+2025-09-28 18:46:16,401 - INFO - Retrieved news for 16 different dates
+2025-09-28 18:46:16,405 - INFO - Successfully curated 5 data points for BTC-USD
+2025-09-28 18:46:16,408 - INFO - Data saved to output\csv\demo_BTC_USD.csv
+2025-09-28 18:46:16,410 - INFO - Data saved to output\json\demo_BTC_USD.json
+2025-09-28 18:50:23,494 - INFO - Starting data curation for TSLA on Crypto
+2025-09-28 18:50:23,495 - INFO - Fetching structured data for TSLA on Crypto
+2025-09-28 18:50:24,507 - INFO - Successfully retrieved 5 days of data for TSLA via Yahoo chart API
+2025-09-28 18:50:24,508 - INFO - Fetching unstructured data (news) for TSLA
+2025-09-28 18:50:28,344 - INFO - Retrieved news for 10 different dates
+2025-09-28 18:50:28,347 - INFO - Successfully curated 5 data points for TSLA
+2025-09-28 18:50:28,349 - INFO - Data saved to output\csv\demo_TSLA.csv
+2025-09-28 18:50:28,350 - INFO - Data saved to output\json\demo_TSLA.json
+2025-09-28 18:51:33,132 - INFO - Starting data curation for AAPL on Crypto
+2025-09-28 18:51:33,133 - INFO - Fetching structured data for AAPL on Crypto
+2025-09-28 18:51:34,149 - INFO - Successfully retrieved 5 days of data for AAPL via Yahoo chart API
+2025-09-28 18:51:34,150 - INFO - Fetching unstructured data (news) for AAPL
+2025-09-28 18:51:37,822 - INFO - Retrieved news for 8 different dates
+2025-09-28 18:51:37,824 - INFO - Successfully curated 5 data points for AAPL
+2025-09-28 18:51:37,826 - INFO - Data saved to output\csv\demo_AAPL.csv
+2025-09-28 18:51:37,828 - INFO - Data saved to output\json\demo_AAPL.json
+2025-09-28 18:51:38,834 - INFO - Starting data curation for TSLA on Crypto
+2025-09-28 18:51:38,835 - INFO - Fetching structured data for TSLA on Crypto
+2025-09-28 18:51:39,785 - INFO - Successfully retrieved 5 days of data for TSLA via Yahoo chart API
+2025-09-28 18:51:39,785 - INFO - Fetching unstructured data (news) for TSLA
+2025-09-28 18:51:40,588 - INFO - Retrieved news for 10 different dates
+2025-09-28 18:51:40,590 - INFO - Successfully curated 5 data points for TSLA
+2025-09-28 18:51:40,593 - INFO - Data saved to output\csv\demo_TSLA.csv
+2025-09-28 18:51:40,594 - INFO - Data saved to output\json\demo_TSLA.json
