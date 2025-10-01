@@ -48,16 +48,6 @@ const Dashboard = () => {
           <p>Total Records: {stats.totalRecords}</p>
           <p>Last Generated: {stats.lastGenerated || 'Never'}</p>
         </div>
-
-        <div className="card">
-          <h3>Quick Actions</h3>
-          <button className="btn" onClick={() => window.location.href = '/generator'}>
-            Generate New Dataset
-          </button>
-          <button className="btn" onClick={() => window.location.href = '/analytics'}>
-            View Analytics
-          </button>
-        </div>
       </div>
 
       <div className="card">
