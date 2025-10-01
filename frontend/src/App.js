@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Dashboard from './components/Dashboard';
 import DataGenerator from './components/DataGenerator';
-import Analytics from './components/Analytics';
+import Forecasts from './components/Forecasts';
 import './App.css';
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
             <ul className="nav-links">
               <li><Link to="/">Dashboard</Link></li>
               <li><Link to="/generator">Data Generator</Link></li>
-              <li><Link to="/analytics">Analytics</Link></li>
+              <li><Link to="/forecasts">Forecasts</Link></li>
             </ul>
           </div>
         </nav>
@@ -25,7 +25,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Dashboard />} />
               <Route path="/generator" element={<DataGenerator />} />
-              <Route path="/analytics" element={<Analytics />} />
+              <Route path="/forecasts" element={<Forecasts />} />
             </Routes>
           </div>
         </main>

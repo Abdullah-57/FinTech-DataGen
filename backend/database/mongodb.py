@@ -10,6 +10,11 @@ class MongoDB:
         self.client = None
         self.db = None
         self.connect()
+        # Lazily cached collection handles
+        self._datasets_col = None
+        self._predictions_col = None
+        self._historical_col = None
+        self._metadata_col = None
     
     def connect(self):
         """Connect to MongoDB"""
@@ -20,6 +25,11 @@ class MongoDB:
             
             self.client = MongoClient(mongodb_uri)
             self.db = self.client.fintech
+            # Initialize common collections
+            self._datasets_col = self.db.datasets
+            self._predictions_col = self.db.predictions
+            self._historical_col = self.db.historical_prices
+            self._metadata_col = self.db.metadata
             
             # Test connection
             self.client.admin.command('ping')
@@ -46,7 +56,7 @@ class MongoDB:
             if self.db is None:
                 raise Exception("Database not connected")
             
-            collection = self.db.datasets
+            collection = self._datasets_col or self.db.datasets
             result = collection.insert_one(dataset_data)
             return result
         except Exception as e:
@@ -59,7 +69,7 @@ class MongoDB:
             if self.db is None:
                 raise Exception("Database not connected")
             
-            collection = self.db.datasets
+            collection = self._datasets_col or self.db.datasets
             from bson import ObjectId
             return collection.find_one({"_id": ObjectId(dataset_id)})
         except Exception as e:
@@ -72,7 +82,7 @@ class MongoDB:
             if self.db is None:
                 raise Exception("Database not connected")
             
-            collection = self.db.datasets
+            collection = self._datasets_col or self.db.datasets
             datasets = list(collection.find().sort("generated_at", -1))
             
             # Convert ObjectId to string for JSON serialization
@@ -90,7 +100,7 @@ class MongoDB:
             if self.db is None:
                 raise Exception("Database not connected")
             
-            collection = self.db.datasets
+            collection = self._datasets_col or self.db.datasets
             datasets = list(collection.find().sort("generated_at", -1).limit(limit))
             
             # Convert ObjectId to string and format for frontend
@@ -115,7 +125,7 @@ class MongoDB:
             if self.db is None:
                 raise Exception("Database not connected")
             
-            collection = self.db.datasets
+            collection = self._datasets_col or self.db.datasets
             latest = collection.find_one(
                 {"symbol": symbol},
                 sort=[("generated_at", -1)]
@@ -131,7 +141,7 @@ class MongoDB:
             if self.db is None:
                 raise Exception("Database not connected")
             
-            collection = self.db.predictions
+            collection = self._predictions_col or self.db.predictions
             result = collection.insert_one(prediction_data)
             return result
         except Exception as e:
@@ -144,7 +154,7 @@ class MongoDB:
             if self.db is None:
                 raise Exception("Database not connected")
             
-            collection = self.db.predictions
+            collection = self._predictions_col or self.db.predictions
             predictions = list(collection.find().sort("created_at", -1).limit(limit))
             
             # Convert ObjectId to string
@@ -155,6 +165,145 @@ class MongoDB:
         except Exception as e:
             print(f"Error getting predictions: {e}")
             return []
+
+    # New: Historical Prices APIs
+    def save_historical_prices(self, symbol, exchange, prices):
+        """Bulk insert curated OHLCV rows into historical_prices.
+        prices: list of dicts with keys date, open, high, low, close, volume
+        """
+        try:
+            if self.db is None:
+                raise Exception("Database not connected")
+            collection = self._historical_col or self.db.historical_prices
+            if not prices:
+                return None
+            docs = []
+            for p in prices:
+                docs.append({
+                    'symbol': symbol,
+                    'exchange': exchange,
+                    'date': p.get('date'),
+                    'open': float(p.get('open_price') or p.get('open') or 0),
+                    'high': float(p.get('high_price') or p.get('high') or 0),
+                    'low': float(p.get('low_price') or p.get('low') or 0),
+                    'close': float(p.get('close_price') or p.get('close') or 0),
+                    'volume': int(p.get('volume') or 0)
+                })
+            result = collection.insert_many(docs, ordered=False)
+            return result
+        except Exception as e:
+            print(f"Error saving historical prices: {e}")
+            return None
+
+    def get_prices(self, symbol, start_date=None, end_date=None, limit=500):
+        """Query historical OHLCV for visualization."""
+        try:
+            if self.db is None:
+                raise Exception("Database not connected")
+            collection = self._historical_col or self.db.historical_prices
+            query = {'symbol': symbol}
+            if start_date or end_date:
+                query['date'] = {}
+                if start_date:
+                    query['date']['$gte'] = start_date
+                if end_date:
+                    query['date']['$lte'] = end_date
+            cursor = collection.find(query).sort('date', 1).limit(int(limit) if limit else 0)
+            rows = []
+            for doc in cursor:
+                rows.append({
+                    'date': doc.get('date'),
+                    'open': float(doc.get('open', 0)),
+                    'high': float(doc.get('high', 0)),
+                    'low': float(doc.get('low', 0)),
+                    'close': float(doc.get('close', 0)),
+                    'volume': int(doc.get('volume', 0))
+                })
+            return rows
+        except Exception as e:
+            print(f"Error getting prices: {e}")
+            return []
+
+    # New: Forecast and Metadata helpers
+    def save_forecast(self, forecast_data):
+        """Insert a new forecast document with model, timestamp, horizon, predicted_values."""
+        try:
+            if self.db is None:
+                raise Exception("Database not connected")
+            collection = self._predictions_col or self.db.predictions
+            result = collection.insert_one(forecast_data)
+            return result
+        except Exception as e:
+            print(f"Error saving forecast: {e}")
+            raise
+
+    def get_predictions(self, symbol=None, horizon=None, limit=50):
+        """Query predictions filtered by symbol and horizon."""
+        try:
+            if self.db is None:
+                raise Exception("Database not connected")
+            collection = self._predictions_col or self.db.predictions
+            query = {}
+            if symbol:
+                query['symbol'] = symbol
+            if horizon:
+                query['forecast_horizon'] = horizon
+            cursor = collection.find(query).sort('created_at', -1).limit(int(limit) if limit else 0)
+            results = []
+            for doc in cursor:
+                doc['_id'] = str(doc['_id'])
+                results.append(doc)
+            return results
+        except Exception as e:
+            print(f"Error getting predictions: {e}")
+            return []
+
+    def upsert_metadata(self, symbol, metadata):
+        """Upsert instrument metadata: instrument info, data sources, update logs."""
+        try:
+            if self.db is None:
+                raise Exception("Database not connected")
+            collection = self._metadata_col or self.db.metadata
+            from pymongo import ReturnDocument
+            updated = collection.find_one_and_update(
+                {'symbol': symbol},
+                {
+                    '$set': {
+                        'symbol': symbol,
+                        'instrument_info': metadata.get('instrument_info'),
+                        'data_sources': metadata.get('data_sources')
+                    },
+                    '$setOnInsert': {'created_at': datetime.now()},
+                    '$push': {'update_logs': {'$each': metadata.get('update_logs', [])}}
+                },
+                upsert=True,
+                return_document=ReturnDocument.AFTER
+            )
+            if updated and '_id' in updated:
+                updated['_id'] = str(updated['_id'])
+            return updated
+        except Exception as e:
+            print(f"Error upserting metadata: {e}")
+            return None
+
+    def get_metadata(self, symbol=None):
+        """Get metadata for a symbol or all instruments."""
+        try:
+            if self.db is None:
+                raise Exception("Database not connected")
+            collection = self._metadata_col or self.db.metadata
+            if symbol:
+                doc = collection.find_one({'symbol': symbol})
+                if doc and '_id' in doc:
+                    doc['_id'] = str(doc['_id'])
+                return doc
+            docs = list(collection.find())
+            for d in docs:
+                d['_id'] = str(d['_id'])
+            return docs
+        except Exception as e:
+            print(f"Error getting metadata: {e}")
+            return None if symbol else []
     
     def count_datasets(self):
         """Count total datasets"""
@@ -162,7 +311,7 @@ class MongoDB:
             if self.db is None:
                 return 0
             
-            collection = self.db.datasets
+            collection = self._datasets_col or self.db.datasets
             return collection.count_documents({})
         except:
             return 0
@@ -173,7 +322,7 @@ class MongoDB:
             if self.db is None:
                 return 0
             
-            collection = self.db.datasets
+            collection = self._datasets_col or self.db.datasets
             pipeline = [{"$group": {"_id": None, "total": {"$sum": "$records"}}}]
             result = list(collection.aggregate(pipeline))
             return result[0]['total'] if result else 0
@@ -186,7 +335,7 @@ class MongoDB:
             if self.db is None:
                 return None
             
-            collection = self.db.datasets
+            collection = self._datasets_col or self.db.datasets
             latest = collection.find_one(sort=[("generated_at", -1)])
             return latest['generated_at'].strftime('%Y-%m-%d %H:%M:%S') if latest else None
         except:
