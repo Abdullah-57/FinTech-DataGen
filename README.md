@@ -160,6 +160,10 @@ MongoDB → REST Call → Format Data → Plotly.js → React Component
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/9f17e669-a8d5-42a0-820c-364e7b347ec7" />
 
 - All three types of ML Models (Traditional, Neural and Ensemble Methods) uploaded on Hugging Face @abdullah-daoud
+- Links:
+   - https://huggingface.co/abdullah-daoud/fintech-traditional-forecasters
+   - https://huggingface.co/abdullah-daoud/fintech-neural-forecasters
+   - https://huggingface.co/abdullah-daoud/fintech-ensemble-forecaster
 
 ### Traditional Models
 
