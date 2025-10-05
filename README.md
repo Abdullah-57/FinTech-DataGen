@@ -1,9 +1,8 @@
 # FinTech DataGen - Assignment Report
 
-**Course:** CS4063 - Natural Language Processing  
-**Assignment:** Complete Forecasting Application for Financial Instruments  
-**Author:** FinTech DataGen Team  
-**Date:** October 2025  
+**Course:** CS4063 - Natural Language Processing 
+**Author:** Abdullah Daoud
+**Date:** 5th October 2025  
 
 ---
 
@@ -154,6 +153,28 @@ MongoDB → REST Call → Format Data → Plotly.js → React Component
 - Interactive Plotly.js candlestick charts with OHLCV data
 - Real-time prediction overlay on historical price data
 - Zoom, pan, and hover functionality for detailed analysis
+
+
+### Hugging Face Models
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/9f17e669-a8d5-42a0-820c-364e7b347ec7" />
+
+- All three types of ML Models (Traditional, Neural and Ensemble Methods) uploaded on Hugging Face @abdullah-daoud
+
+### Traditional Models
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/dcf9bcbd-c357-41c4-a0e0-b1f4a5cce25b" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/4afc8e07-639a-4d4b-8d81-f20af64ff0c8" />
+
+### Neural Models
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/c059882d-dcad-4fb7-a074-a951ca62e45a" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/9d460eb1-1418-424e-94c2-ecf3c33b2101" />
+
+### Ensemble Methods
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/959dcf45-8f8f-44a6-be60-71a2b5522971" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/d86f6a97-47e0-4c08-967c-d97bde465321" />
 
 ---
 
