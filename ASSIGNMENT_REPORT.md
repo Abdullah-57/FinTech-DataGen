@@ -123,33 +123,37 @@ MongoDB → REST Call → Format Data → Plotly.js → React Component
 ## 4. Web Interface Screenshots
 
 ### Dashboard Interface
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/c8ff6623-75c0-4b2f-ad62-c13ef47f6e56" />
+
 *System overview showing health status and recent activity*
 - Real-time system health monitoring via `/api/health` endpoint
 - Database connectivity status and statistics
 - Quick access to all major features
 - Clean, responsive React-based design
 
+### Data Generation Interface
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/df3cfba5-a2bc-42ca-a28f-57f9bb31d7d8" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/73446abc-0331-4dfb-99b1-97c96b0b5698" />
+
+*Financial data collection and curation*
+- Symbol input with exchange selection (NASDAQ, NYSE, etc.)
+- Historical data range selection (days parameter)
+- Real-time data preview with validation
+- Integration with Yahoo Finance, Google News, and CoinDesk APIs
+
 ### Forecasting Interface  
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/4992b930-98f1-4258-b6b0-27e0e6ca1e21" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/8ea1d916-3f9c-4140-9a85-938793c01e80" />
+
 *Interactive forecasting with model selection and candlestick charts*
 - Model selection dropdown (Moving Average, ARIMA, LSTM, Transformer, Ensemble)
 - Forecast horizon selection (1hr, 3hrs, 24hrs, 72hrs) via `_parse_horizon_to_hours()` function
 - Interactive Plotly.js candlestick charts with OHLCV data
 - Real-time prediction overlay on historical price data
 - Zoom, pan, and hover functionality for detailed analysis
-
-### Analytics Dashboard
-*Performance metrics and model comparison*
-- Comprehensive model performance comparison tables
-- Accuracy metrics visualization (RMSE, MAE, MAPE)
-- Historical prediction tracking via `/api/predictions` endpoints
-- Model-specific performance analytics
-
-### Data Generation Interface
-*Financial data collection and curation*
-- Symbol input with exchange selection (NASDAQ, NYSE, etc.)
-- Historical data range selection (days parameter)
-- Real-time data preview with validation
-- Integration with Yahoo Finance, Google News, and CoinDesk APIs
 
 ---
 
