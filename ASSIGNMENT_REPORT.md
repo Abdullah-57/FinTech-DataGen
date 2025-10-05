@@ -190,8 +190,6 @@ The Ensemble model achieves state-of-the-art accuracy (1.25% MAPE) while the sys
 
 **Key Achievement**: A fully functional FinTech application ready for production deployment with minimal setup requirements via `requirements.txt` and `package.json`.
 
-**Hugging Face Token**: REMOVED
-
 ---
 
 **End of Assignment Report**
