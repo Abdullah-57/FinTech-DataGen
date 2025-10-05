@@ -1,4 +1,4 @@
-# FinTech DataGen - Assignment Report
+# FinTech DataGen
 
 **Course:** CS4063 - Natural Language Processing 
 **Author:** Abdullah Daoud
