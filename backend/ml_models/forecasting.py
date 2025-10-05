@@ -55,6 +55,8 @@ class MovingAverageForecaster(ForecasterBase):
         self.history: List[float] = []
 
     def fit(self, train_series: pd.Series) -> None:
+        if len(train_series) == 0:
+            raise ValueError("Cannot fit MovingAverageForecaster with empty series")
         self.history = list(train_series.values)
 
     def predict(self, horizon: int) -> List[float]:

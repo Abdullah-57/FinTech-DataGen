@@ -7,13 +7,18 @@ const Analytics = () => {
     predictions: [],
     accuracy: null
   });
+  const [metadata, setMetadata] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchAnalytics = async () => {
       try {
-        const response = await axios.get('/api/analytics');
-        setAnalytics(response.data);
+        const [analyticsResponse, metadataResponse] = await Promise.all([
+          axios.get('/api/analytics'),
+          axios.get('/api/metadata')
+        ]);
+        setAnalytics(analyticsResponse.data);
+        setMetadata(metadataResponse.data);
       } catch (error) {
         console.error('Failed to fetch analytics:', error);
       } finally {
@@ -68,6 +73,60 @@ const Analytics = () => {
           <p>Last Training: Never</p>
           <p>Model Type: Financial Prediction</p>
         </div>
+      </div>
+
+      <div className="card">
+        <h3>📋 Instrument Metadata</h3>
+        {metadata.length > 0 ? (
+          <div>
+            {metadata.map((meta, index) => (
+              <div key={index} style={{ marginBottom: '20px', padding: '10px', border: '1px solid #ddd', borderRadius: '5px' }}>
+                <h4>📊 {meta.instrument_info?.symbol || 'Unknown Symbol'}</h4>
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
+                  <div>
+                    <strong>Instrument Info:</strong>
+                    <ul>
+                      <li>Symbol: {meta.instrument_info?.symbol || 'N/A'}</li>
+                      <li>Exchange: {meta.instrument_info?.exchange || 'N/A'}</li>
+                      <li>Last Updated: {meta.instrument_info?.last_updated || 'N/A'}</li>
+                      <li>Data Points: {meta.instrument_info?.data_points || 'N/A'}</li>
+                      <li>Date Range: {meta.instrument_info?.date_range?.start} to {meta.instrument_info?.date_range?.end}</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <strong>Data Sources:</strong>
+                    <ul>
+                      <li>Market Data: {meta.data_sources?.market_data || 'N/A'}</li>
+                      <li>News Data: {meta.data_sources?.news_data || 'N/A'}</li>
+                      <li>Technical Indicators: {meta.data_sources?.technical_indicators || 'N/A'}</li>
+                      <li>Sentiment Analysis: {meta.data_sources?.sentiment_analysis || 'N/A'}</li>
+                      {meta.data_sources?.forecast_models && (
+                        <li>Forecast Models: {meta.data_sources.forecast_models}</li>
+                      )}
+                      {meta.data_sources?.ensemble_method && (
+                        <li>Ensemble Method: {meta.data_sources.ensemble_method}</li>
+                      )}
+                    </ul>
+                  </div>
+                </div>
+                <div>
+                  <strong>Recent Activity:</strong>
+                  <ul>
+                    {meta.update_logs?.slice(-3).map((log, logIndex) => (
+                      <li key={logIndex}>
+                        {log.timestamp} - {log.action} ({log.status})
+                        {log.records_added && ` - ${log.records_added} records`}
+                        {log.models_used && ` - Models: ${log.models_used.join(', ')}`}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <p>No metadata available. Generate some data first to see metadata information.</p>
+        )}
       </div>
 
       <div className="card">

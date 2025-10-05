@@ -85,14 +85,33 @@ class MongoDB:
             collection = self._datasets_col or self.db.datasets
             datasets = list(collection.find().sort("generated_at", -1))
             
-            # Convert ObjectId to string for JSON serialization
+            # Convert ObjectId to string and handle NaN values for JSON serialization
             for dataset in datasets:
                 dataset['_id'] = str(dataset['_id'])
+                # Clean up data array to handle NaN values
+                if 'data' in dataset and isinstance(dataset['data'], list):
+                    for record in dataset['data']:
+                        self._clean_nan_values(record)
             
             return datasets
         except Exception as e:
             print(f"Error getting datasets: {e}")
             return []
+    
+    def _clean_nan_values(self, obj):
+        """Recursively clean NaN values from a dictionary, converting them to None"""
+        import math
+        if isinstance(obj, dict):
+            for key, value in obj.items():
+                if isinstance(value, float) and math.isnan(value):
+                    obj[key] = None
+                elif isinstance(value, dict):
+                    self._clean_nan_values(value)
+                elif isinstance(value, list):
+                    for item in value:
+                        if isinstance(item, dict):
+                            self._clean_nan_values(item)
+        return obj
     
     def get_recent_datasets(self, limit=10):
         """Get recent datasets"""
@@ -212,6 +231,7 @@ class MongoDB:
             rows = []
             for doc in cursor:
                 rows.append({
+                    'symbol': doc.get('symbol'),
                     'date': doc.get('date'),
                     'open': float(doc.get('open', 0)),
                     'high': float(doc.get('high', 0)),
@@ -237,8 +257,8 @@ class MongoDB:
             print(f"Error saving forecast: {e}")
             raise
 
-    def get_predictions(self, symbol=None, horizon=None, limit=50):
-        """Query predictions filtered by symbol and horizon."""
+    def get_predictions(self, symbol=None, horizon=None, model=None, limit=50):
+        """Query predictions filtered by symbol, horizon, and model."""
         try:
             if self.db is None:
                 raise Exception("Database not connected")
@@ -248,11 +268,15 @@ class MongoDB:
                 query['symbol'] = symbol
             if horizon:
                 query['forecast_horizon'] = horizon
+            if model:
+                query['model'] = model
+            print(f"🔍 Querying predictions with filters: {query}")
             cursor = collection.find(query).sort('created_at', -1).limit(int(limit) if limit else 0)
             results = []
             for doc in cursor:
                 doc['_id'] = str(doc['_id'])
                 results.append(doc)
+            print(f"📊 Found {len(results)} predictions matching query")
             return results
         except Exception as e:
             print(f"Error getting predictions: {e}")

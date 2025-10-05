@@ -151,6 +151,38 @@ def generate_data():
                     )
                 except Exception as e:
                     print(f"Warning: Failed to save historical prices: {e}")
+                
+                # Save metadata for the instrument
+                try:
+                    metadata = {
+                        'instrument_info': {
+                            'symbol': data['symbol'],
+                            'exchange': data['exchange'],
+                            'last_updated': datetime.now().isoformat(),
+                            'data_points': len(dataset),
+                            'date_range': {
+                                'start': dataset_dict[0]['date'] if dataset_dict else None,
+                                'end': dataset_dict[-1]['date'] if dataset_dict else None
+                            }
+                        },
+                        'data_sources': {
+                            'market_data': 'Yahoo Finance API',
+                            'news_data': 'Yahoo Finance, Google News RSS, CoinDesk RSS',
+                            'technical_indicators': 'Calculated (SMA, RSI, Volatility)',
+                            'sentiment_analysis': 'Keyword-based sentiment scoring'
+                        },
+                        'update_logs': [{
+                            'timestamp': datetime.now().isoformat(),
+                            'action': 'data_generation',
+                            'records_added': len(dataset),
+                            'days_requested': days,
+                            'status': 'success'
+                        }]
+                    }
+                    db.upsert_metadata(data['symbol'], metadata)
+                    print(f"✅ Metadata saved for {data['symbol']}")
+                except Exception as e:
+                    print(f"Warning: Failed to save metadata: {e}")
             except Exception as e:
                 print(f"Warning: Failed to save to database: {e}")
         
@@ -353,10 +385,54 @@ def make_prediction():
 def get_datasets():
     """Get all datasets"""
     try:
+        print("🔍 GET /api/datasets called")
         if db is None:
+            print("⚠️ Database is None, returning empty array")
             return jsonify([]), 200
+        
+        print("📊 Fetching datasets from database...")
         datasets = db.get_all_datasets()
-        return jsonify(datasets), 200
+        print(f"📊 Database returned: {type(datasets)} with {len(datasets) if isinstance(datasets, list) else 'unknown'} items")
+        
+        # Ensure we always return an array
+        if not isinstance(datasets, list):
+            print(f"⚠️ Converting non-list {type(datasets)} to empty array")
+            datasets = []
+        
+        print(f"✅ Returning {len(datasets)} datasets")
+        response = jsonify(datasets)
+        response.headers['Content-Type'] = 'application/json'
+        return response, 200
+    except Exception as e:
+        # Return empty array on error to prevent frontend issues
+        print(f"❌ Error getting datasets: {e}")
+        import traceback
+        traceback.print_exc()
+        response = jsonify([])
+        response.headers['Content-Type'] = 'application/json'
+        return response, 200
+
+@app.route('/api/debug/datasets', methods=['GET'])
+def debug_datasets():
+    """Debug endpoint to check dataset status"""
+    try:
+        debug_info = {
+            'db_connected': db is not None,
+            'db_test_result': db.test_connection() if db else False,
+            'dataset_count': db.count_datasets() if db else 0,
+            'raw_datasets': []
+        }
+        
+        if db:
+            try:
+                raw_datasets = db.get_all_datasets()
+                debug_info['raw_datasets'] = raw_datasets[:3]  # First 3 for debugging
+                debug_info['raw_datasets_type'] = type(raw_datasets).__name__
+                debug_info['raw_datasets_length'] = len(raw_datasets) if isinstance(raw_datasets, list) else 'N/A'
+            except Exception as e:
+                debug_info['raw_datasets_error'] = str(e)
+        
+        return jsonify(debug_info), 200
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
@@ -427,14 +503,45 @@ def post_prediction():
 
 @app.route('/api/predictions', methods=['GET'])
 def list_predictions():
-    """Query predictions for visualization. Query: symbol, horizon, limit"""
+    """Query predictions for visualization. Query: symbol, horizon, model, limit"""
     try:
         if db is None:
             return jsonify([]), 200
         symbol = request.args.get('symbol')
         horizon = request.args.get('horizon')
+        model = request.args.get('model')
         limit = request.args.get('limit', default=50)
-        docs = db.get_predictions(symbol=symbol, horizon=horizon, limit=limit)
+        docs = db.get_predictions(symbol=symbol, horizon=horizon, model=model, limit=limit)
+        return jsonify(docs), 200
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/api/predictions/by-models', methods=['GET'])
+def get_predictions_by_models():
+    """Get predictions filtered by symbol and specific models. Query: symbol, models (comma-separated)"""
+    try:
+        if db is None:
+            return jsonify([]), 200
+        symbol = request.args.get('symbol')
+        models_param = request.args.get('models')
+        limit = request.args.get('limit', default=50)
+        
+        if not symbol:
+            return jsonify({'error': 'symbol parameter is required'}), 400
+        
+        if not models_param:
+            # If no models specified, return all predictions for the symbol
+            docs = db.get_predictions(symbol=symbol, limit=limit)
+        else:
+            # Parse comma-separated models
+            models = [m.strip() for m in models_param.split(',')]
+            all_docs = []
+            for model in models:
+                model_docs = db.get_predictions(symbol=symbol, model=model, limit=limit)
+                all_docs.extend(model_docs)
+            # Sort by created_at descending and limit
+            docs = sorted(all_docs, key=lambda x: x.get('created_at', ''), reverse=True)[:int(limit)]
+        
         return jsonify(docs), 200
     except Exception as e:
         return jsonify({'error': str(e)}), 500
@@ -599,6 +706,10 @@ def run_forecast():
         symbol = payload.get('symbol')
         models = payload.get('models', ['ma', 'arima', 'lstm'])
         preview_hours = int(payload.get('preview_horizon_hours', 24))
+        
+        # Debug logging
+        print(f"🔍 Forecast request for {symbol} with models: {models}")
+        print(f"🔍 Ensemble enabled: {payload.get('ensemble', False)}")
         # Map hours to whole days since data is daily
         preview_days = max(1, int(round(preview_hours / 24)))
         if not symbol:
@@ -617,6 +728,7 @@ def run_forecast():
         preview_outputs = []
         # moving average
         if 'ma' in models:
+            print(f"✅ Processing Moving Average model for {symbol}")
             window = int(payload.get('ma_window', 5))
             ma_model = MovingAverageForecaster(window=window)
             ma_model.fit(train_series)
@@ -625,6 +737,7 @@ def run_forecast():
                 'model': 'moving_average',
                 **eval_res
             }
+            print(f"💾 Saving Moving Average forecast to database for {symbol}")
             db.save_forecast({
                 'symbol': symbol,
                 'model': 'moving_average',
@@ -646,6 +759,7 @@ def run_forecast():
 
         # ARIMA
         if 'arima' in models:
+            print(f"✅ Processing ARIMA model for {symbol}")
             order = payload.get('arima_order', [1, 1, 1])
             if not isinstance(order, (list, tuple)) or len(order) != 3:
                 order = [1, 1, 1]
@@ -656,6 +770,7 @@ def run_forecast():
                 'model': f'ARIMA{tuple(int(x) for x in order)}',
                 **eval_res
             }
+            print(f"💾 Saving ARIMA forecast to database for {symbol}")
             db.save_forecast({
                 'symbol': symbol,
                 'model': arima_res['model'],
@@ -676,6 +791,7 @@ def run_forecast():
 
         # LSTM
         if 'lstm' in models:
+            print(f"✅ Processing LSTM model for {symbol}")
             lookback = int(payload.get('lstm_lookback', 10))
             lstm_model = LSTMForecaster(lookback=lookback, epochs=int(payload.get('lstm_epochs', 40)))
             lstm_model.fit(train_series)
@@ -684,6 +800,7 @@ def run_forecast():
                 'model': 'LSTM',
                 **eval_res
             }
+            print(f"💾 Saving LSTM forecast to database for {symbol}")
             db.save_forecast({
                 'symbol': symbol,
                 'model': lstm_res['model'],
@@ -704,6 +821,7 @@ def run_forecast():
 
         # Transformer (optional)
         if 'transformer' in models:
+            print(f"✅ Processing Transformer model for {symbol}")
             t_lookback = int(payload.get('transformer_lookback', 24))
             t_epochs = int(payload.get('transformer_epochs', 30))
             t_heads = int(payload.get('transformer_heads', 2))
@@ -724,6 +842,7 @@ def run_forecast():
                 'model': 'Transformer',
                 **eval_res
             }
+            print(f"💾 Saving Transformer forecast to database for {symbol}")
             db.save_forecast({
                 'symbol': symbol,
                 'model': trans_res['model'],
@@ -744,6 +863,7 @@ def run_forecast():
 
         # Optional ensemble: average of selected models
         if payload.get('ensemble'):
+            print(f"✅ Processing Ensemble model for {symbol}")
             selected = []
             if 'ma' in models:
                 selected.append(MovingAverageForecaster(window=int(payload.get('ma_window', 5))))
@@ -764,6 +884,7 @@ def run_forecast():
                     dropout=float(payload.get('transformer_dropout', 0.1))
                 ))
             if selected:
+                print(f"🔧 Creating ensemble with {len(selected)} models for {symbol}")
                 ens = EnsembleAverageForecaster(selected)
                 ens.fit(train_series)
                 eval_res = ens.evaluate(test_series)
@@ -771,6 +892,7 @@ def run_forecast():
                     'model': 'EnsembleAverage',
                     **eval_res
                 }
+                print(f"💾 Saving Ensemble forecast to database for {symbol}")
                 db.save_forecast({
                     'symbol': symbol,
                     'model': 'EnsembleAverage',
@@ -785,6 +907,54 @@ def run_forecast():
         # build preview dates for plotting
         last_date = pd.to_datetime(series.index[-1])
         preview_dates = [(last_date + pd.Timedelta(days=i+1)).strftime('%Y-%m-%d') for i in range(preview_days)]
+        
+        # Summary logging
+        print(f"📊 Forecast completed for {symbol}: {len(results)} models processed and saved to database")
+        print(f"📊 Models saved: {[r['model'] for r in results]}")
+        
+        # Update metadata with forecast information
+        try:
+            if db is not None:
+                forecast_log = {
+                    'timestamp': datetime.now().isoformat(),
+                    'action': 'forecast_run',
+                    'models_used': models,
+                    'ensemble_enabled': payload.get('ensemble', False),
+                    'forecast_horizon_hours': preview_hours,
+                    'forecast_horizon_days': preview_days,
+                    'models_processed': len(results),
+                    'status': 'success'
+                }
+                
+                # Get existing metadata or create new
+                existing_metadata = db.get_metadata(symbol)
+                if existing_metadata:
+                    # Update existing metadata
+                    update_logs = existing_metadata.get('update_logs', [])
+                    update_logs.append(forecast_log)
+                    db.upsert_metadata(symbol, {
+                        'update_logs': update_logs
+                    })
+                else:
+                    # Create new metadata entry
+                    metadata = {
+                        'instrument_info': {
+                            'symbol': symbol,
+                            'last_updated': datetime.now().isoformat(),
+                            'forecast_capability': True
+                        },
+                        'data_sources': {
+                            'forecast_models': ', '.join(models),
+                            'ensemble_method': 'Average' if payload.get('ensemble', False) else 'None'
+                        },
+                        'update_logs': [forecast_log]
+                    }
+                    db.upsert_metadata(symbol, metadata)
+                
+                print(f"✅ Metadata updated for {symbol} forecast run")
+        except Exception as e:
+            print(f"Warning: Failed to update metadata for forecast: {e}")
+        
         return jsonify({
             'symbol': symbol,
             'results': results,
@@ -798,4 +968,4 @@ def run_forecast():
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
-    app.run(debug=True, host='0.0.0.0', port=port)
+    app.run(debug=False, host='0.0.0.0', port=port)
