@@ -1727,3 +1727,42 @@
 2025-10-05 16:58:05,563 - INFO - 127.0.0.1 - - [05/Oct/2025 16:58:05] "POST /api/forecast/run HTTP/1.1" 200 -
 2025-10-05 16:58:05,649 - INFO - 127.0.0.1 - - [05/Oct/2025 16:58:05] "GET /get_historical?symbol=AAPL&limit=300 HTTP/1.1" 200 -
 2025-10-05 16:58:06,043 - INFO - 127.0.0.1 - - [05/Oct/2025 16:58:06] "GET /api/predictions?symbol=AAPL&models=transformer&limit=5 HTTP/1.1" 200 -
+2025-10-05 19:21:14,345 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.100.38:5000
+2025-10-05 19:21:14,345 - INFO - [33mPress CTRL+C to quit[0m
+2025-10-05 19:22:34,590 - INFO - 127.0.0.1 - - [05/Oct/2025 19:22:34] "GET /api/health HTTP/1.1" 200 -
+2025-10-05 19:22:34,872 - INFO - 127.0.0.1 - - [05/Oct/2025 19:22:34] "GET /api/health HTTP/1.1" 200 -
+2025-10-05 19:22:50,540 - INFO - 127.0.0.1 - - [05/Oct/2025 19:22:50] "GET /api/health HTTP/1.1" 200 -
+2025-10-05 19:23:05,839 - INFO - 127.0.0.1 - - [05/Oct/2025 19:23:05] "GET /api/health HTTP/1.1" 200 -
+2025-10-05 19:23:35,531 - INFO - 127.0.0.1 - - [05/Oct/2025 19:23:35] "GET /api/health HTTP/1.1" 200 -
+2025-10-05 19:23:50,829 - INFO - 127.0.0.1 - - [05/Oct/2025 19:23:50] "GET /api/health HTTP/1.1" 200 -
+2025-10-05 19:24:05,538 - INFO - 127.0.0.1 - - [05/Oct/2025 19:24:05] "GET /api/health HTTP/1.1" 200 -
+2025-10-05 19:24:35,850 - INFO - 127.0.0.1 - - [05/Oct/2025 19:24:35] "GET /api/health HTTP/1.1" 200 -
+2025-10-05 19:24:50,539 - INFO - 127.0.0.1 - - [05/Oct/2025 19:24:50] "GET /api/health HTTP/1.1" 200 -
+2025-10-05 19:24:52,784 - INFO - 127.0.0.1 - - [05/Oct/2025 19:24:52] "GET /api/datasets HTTP/1.1" 200 -
+2025-10-05 19:24:52,971 - INFO - 127.0.0.1 - - [05/Oct/2025 19:24:52] "GET /api/datasets HTTP/1.1" 200 -
+2025-10-05 19:25:01,284 - INFO - 127.0.0.1 - - [05/Oct/2025 19:25:01] "GET /api/prices?symbol=TSLA&limit=300 HTTP/1.1" 200 -
+2025-10-05 19:25:14,989 - INFO - 127.0.0.1 - - [05/Oct/2025 19:25:14] "POST /api/forecast/run HTTP/1.1" 200 -
+2025-10-05 19:25:50,863 - INFO - 127.0.0.1 - - [05/Oct/2025 19:25:50] "GET /api/health HTTP/1.1" 200 -
+2025-10-05 19:26:02,469 - INFO - 127.0.0.1 - - [05/Oct/2025 19:26:02] "GET /get_historical?symbol=TSLA&limit=300 HTTP/1.1" 200 -
+2025-10-05 19:26:02,859 - INFO - 127.0.0.1 - - [05/Oct/2025 19:26:02] "GET /api/predictions?symbol=TSLA&models=ma,arima,lstm,transformer&limit=5 HTTP/1.1" 200 -
+2025-10-05 19:26:50,546 - INFO - 127.0.0.1 - - [05/Oct/2025 19:26:50] "GET /api/health HTTP/1.1" 200 -
+2025-10-05 19:26:53,936 - INFO - Starting data curation for BTC-USD on Crypto
+2025-10-05 19:26:53,937 - INFO - Fetching structured data for BTC-USD on Crypto
+2025-10-05 19:26:55,088 - INFO - Successfully retrieved 10 days of data for BTC-USD via Yahoo chart API
+2025-10-05 19:26:55,088 - INFO - Fetching unstructured data (news) for BTC-USD
+2025-10-05 19:26:56,044 - WARNING - Could not fetch Yahoo Finance news via API: Expecting value: line 1 column 1 (char 0)
+2025-10-05 19:26:57,596 - WARNING - Web scraping fallback also failed: 404 Client Error: Not Found for url: https://finance.yahoo.com/quote/BTC-USD/news/
+2025-10-05 19:26:59,609 - INFO - Retrieved news for 14 different dates
+2025-10-05 19:26:59,616 - INFO - Successfully curated 10 data points for BTC-USD
+2025-10-05 19:26:59,938 - INFO - 127.0.0.1 - - [05/Oct/2025 19:26:59] "[35m[1mPOST /api/generate HTTP/1.1[0m" 201 -
+2025-10-05 19:27:50,540 - INFO - 127.0.0.1 - - [05/Oct/2025 19:27:50] "GET /api/health HTTP/1.1" 200 -
+2025-10-05 19:28:50,865 - INFO - 127.0.0.1 - - [05/Oct/2025 19:28:50] "GET /api/health HTTP/1.1" 200 -
+2025-10-05 19:29:50,561 - INFO - 127.0.0.1 - - [05/Oct/2025 19:29:50] "GET /api/health HTTP/1.1" 200 -
+2025-10-05 19:30:50,857 - INFO - 127.0.0.1 - - [05/Oct/2025 19:30:50] "GET /api/health HTTP/1.1" 200 -
+2025-10-05 19:31:18,142 - INFO - 127.0.0.1 - - [05/Oct/2025 19:31:18] "GET /api/datasets HTTP/1.1" 200 -
+2025-10-05 19:31:18,670 - INFO - 127.0.0.1 - - [05/Oct/2025 19:31:18] "GET /api/datasets HTTP/1.1" 200 -
+2025-10-05 19:31:50,884 - INFO - 127.0.0.1 - - [05/Oct/2025 19:31:50] "GET /api/health HTTP/1.1" 200 -
+2025-10-05 19:32:50,562 - INFO - 127.0.0.1 - - [05/Oct/2025 19:32:50] "GET /api/health HTTP/1.1" 200 -
