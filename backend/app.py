@@ -143,46 +143,49 @@ def generate_data():
                 })
                 dataset_id = str(result.inserted_id)
                 # Also persist curated OHLCV into historical_prices collection
-                try:
-                    db.save_historical_prices(
-                        symbol=data['symbol'],
-                        exchange=data['exchange'],
-                        prices=dataset_dict
-                    )
-                except Exception as e:
-                    print(f"Warning: Failed to save historical prices: {e}")
+                print(f"💾 Attempting to save {len(dataset_dict)} historical price records...")
+                historical_result = db.save_historical_prices(
+                    symbol=data['symbol'],
+                    exchange=data['exchange'],
+                    prices=dataset_dict
+                )
+                if historical_result:
+                    print(f"✅ Historical prices saved successfully")
+                else:
+                    print(f"⚠️ Failed to save historical prices")
                 
                 # Save metadata for the instrument
-                try:
-                    metadata = {
-                        'instrument_info': {
-                            'symbol': data['symbol'],
-                            'exchange': data['exchange'],
-                            'last_updated': datetime.now().isoformat(),
-                            'data_points': len(dataset),
-                            'date_range': {
-                                'start': dataset_dict[0]['date'] if dataset_dict else None,
-                                'end': dataset_dict[-1]['date'] if dataset_dict else None
-                            }
-                        },
-                        'data_sources': {
-                            'market_data': 'Yahoo Finance API',
-                            'news_data': 'Yahoo Finance, Google News RSS, CoinDesk RSS',
-                            'technical_indicators': 'Calculated (SMA, RSI, Volatility)',
-                            'sentiment_analysis': 'Keyword-based sentiment scoring'
-                        },
-                        'update_logs': [{
-                            'timestamp': datetime.now().isoformat(),
-                            'action': 'data_generation',
-                            'records_added': len(dataset),
-                            'days_requested': days,
-                            'status': 'success'
-                        }]
-                    }
-                    db.upsert_metadata(data['symbol'], metadata)
-                    print(f"✅ Metadata saved for {data['symbol']}")
-                except Exception as e:
-                    print(f"Warning: Failed to save metadata: {e}")
+                print(f"💾 Attempting to save metadata for {data['symbol']}...")
+                metadata = {
+                    'instrument_info': {
+                        'symbol': data['symbol'],
+                        'exchange': data['exchange'],
+                        'last_updated': datetime.now().isoformat(),
+                        'data_points': len(dataset),
+                        'date_range': {
+                            'start': dataset_dict[0]['date'] if dataset_dict else None,
+                            'end': dataset_dict[-1]['date'] if dataset_dict else None
+                        }
+                    },
+                    'data_sources': {
+                        'market_data': 'Yahoo Finance API',
+                        'news_data': 'Yahoo Finance, Google News RSS, CoinDesk RSS',
+                        'technical_indicators': 'Calculated (SMA, RSI, Volatility)',
+                        'sentiment_analysis': 'Keyword-based sentiment scoring'
+                    },
+                    'update_logs': [{
+                        'timestamp': datetime.now().isoformat(),
+                        'action': 'data_generation',
+                        'records_added': len(dataset),
+                        'days_requested': days,
+                        'status': 'success'
+                    }]
+                }
+                metadata_result = db.upsert_metadata(data['symbol'], metadata)
+                if metadata_result:
+                    print(f"✅ Metadata saved successfully for {data['symbol']}")
+                else:
+                    print(f"⚠️ Failed to save metadata for {data['symbol']}")
             except Exception as e:
                 print(f"Warning: Failed to save to database: {e}")
         
@@ -431,6 +434,42 @@ def debug_datasets():
                 debug_info['raw_datasets_length'] = len(raw_datasets) if isinstance(raw_datasets, list) else 'N/A'
             except Exception as e:
                 debug_info['raw_datasets_error'] = str(e)
+        
+        return jsonify(debug_info), 200
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/api/debug/storage', methods=['GET'])
+def debug_storage():
+    """Debug endpoint to check metadata and historical prices storage"""
+    try:
+        symbol = request.args.get('symbol', 'AAPL')  # Default to AAPL for testing
+        
+        debug_info = {
+            'db_connected': db is not None,
+            'symbol_checked': symbol
+        }
+        
+        if db:
+            try:
+                # Check metadata
+                metadata = db.get_metadata(symbol)
+                debug_info['metadata_exists'] = metadata is not None
+                debug_info['metadata_sample'] = metadata
+                
+                # Check historical prices
+                prices = db.get_prices(symbol, limit=5)
+                debug_info['historical_prices_count'] = len(prices) if prices else 0
+                debug_info['historical_prices_sample'] = prices[:3] if prices else []
+                
+                # Check all metadata records
+                all_metadata = db.get_metadata()
+                debug_info['total_metadata_records'] = len(all_metadata) if all_metadata else 0
+                
+            except Exception as e:
+                debug_info['error'] = str(e)
+                import traceback
+                debug_info['traceback'] = traceback.format_exc()
         
         return jsonify(debug_info), 200
     except Exception as e:

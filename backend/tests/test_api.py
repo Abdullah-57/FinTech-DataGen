@@ -22,16 +22,33 @@ import pandas as pd
 import numpy as np
 
 # Fix TensorFlow initialization issue - set environment variable before importing
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
+os.environ['TF_FORCE_GPU_ALLOW_GROWTH'] = 'true'
 
 from datetime import datetime
 
 # Add parent directory to path to import app
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-# sys.modules['app'] = MagicMock()
+# Mock ALL ML-related modules before importing app
+mock_modules = {
+    'tensorflow': MagicMock(),
+    'tensorflow.keras': MagicMock(),
+    'tensorflow.keras.models': MagicMock(),
+    'tensorflow.keras.layers': MagicMock(),
+    'tensorflow.keras.optimizers': MagicMock(),
+    'tensorflow.keras.callbacks': MagicMock(),
+    'statsmodels': MagicMock(),
+    'statsmodels.tsa': MagicMock(),
+    'statsmodels.tsa.arima': MagicMock(),
+    'statsmodels.tsa.arima.model': MagicMock(),
+    'database.mongodb': MagicMock(),
+    'ml_models.forecasting': MagicMock(),
+    'ml_models.predictor': MagicMock(),
+    'ml_models.feature_engineering': MagicMock()
+}
 
-with patch.dict('sys.modules', {'database.mongodb': MagicMock()}):
+with patch.dict('sys.modules', mock_modules):
     from app import app
 
 

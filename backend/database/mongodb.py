@@ -195,23 +195,43 @@ class MongoDB:
                 raise Exception("Database not connected")
             collection = self._historical_col or self.db.historical_prices
             if not prices:
+                print("⚠️ No prices data provided to save_historical_prices")
                 return None
+            
+            print(f"💾 Saving {len(prices)} historical price records for {symbol}")
+            
+            # First, remove existing records for this symbol to avoid duplicates
+            collection.delete_many({'symbol': symbol, 'exchange': exchange})
+            
             docs = []
-            for p in prices:
-                docs.append({
-                    'symbol': symbol,
-                    'exchange': exchange,
-                    'date': p.get('date'),
-                    'open': float(p.get('open_price') or p.get('open') or 0),
-                    'high': float(p.get('high_price') or p.get('high') or 0),
-                    'low': float(p.get('low_price') or p.get('low') or 0),
-                    'close': float(p.get('close_price') or p.get('close') or 0),
-                    'volume': int(p.get('volume') or 0)
-                })
-            result = collection.insert_many(docs, ordered=False)
-            return result
+            for i, p in enumerate(prices):
+                try:
+                    doc = {
+                        'symbol': symbol,
+                        'exchange': exchange,
+                        'date': p.get('date'),
+                        'open': float(p.get('open_price') or p.get('open') or 0),
+                        'high': float(p.get('high_price') or p.get('high') or 0),
+                        'low': float(p.get('low_price') or p.get('low') or 0),
+                        'close': float(p.get('close_price') or p.get('close') or 0),
+                        'volume': int(p.get('volume') or 0)
+                    }
+                    docs.append(doc)
+                except Exception as e:
+                    print(f"⚠️ Error processing price record {i}: {e}")
+                    continue
+            
+            if docs:
+                result = collection.insert_many(docs, ordered=False)
+                print(f"✅ Successfully saved {len(result.inserted_ids)} historical price records")
+                return result
+            else:
+                print("❌ No valid price records to save")
+                return None
         except Exception as e:
-            print(f"Error saving historical prices: {e}")
+            print(f"❌ Error saving historical prices: {e}")
+            import traceback
+            traceback.print_exc()
             return None
 
     def get_prices(self, symbol, start_date=None, end_date=None, limit=500):
@@ -287,27 +307,41 @@ class MongoDB:
         try:
             if self.db is None:
                 raise Exception("Database not connected")
+            
+            print(f"💾 Upserting metadata for symbol: {symbol}")
             collection = self._metadata_col or self.db.metadata
             from pymongo import ReturnDocument
+            
+            update_doc = {
+                '$set': {
+                    'symbol': symbol,
+                    'instrument_info': metadata.get('instrument_info'),
+                    'data_sources': metadata.get('data_sources'),
+                    'last_updated': datetime.now()
+                },
+                '$setOnInsert': {'created_at': datetime.now()}
+            }
+            
+            # Add update logs if provided
+            if metadata.get('update_logs'):
+                update_doc['$push'] = {'update_logs': {'$each': metadata.get('update_logs', [])}}
+            
             updated = collection.find_one_and_update(
                 {'symbol': symbol},
-                {
-                    '$set': {
-                        'symbol': symbol,
-                        'instrument_info': metadata.get('instrument_info'),
-                        'data_sources': metadata.get('data_sources')
-                    },
-                    '$setOnInsert': {'created_at': datetime.now()},
-                    '$push': {'update_logs': {'$each': metadata.get('update_logs', [])}}
-                },
+                update_doc,
                 upsert=True,
                 return_document=ReturnDocument.AFTER
             )
+            
             if updated and '_id' in updated:
                 updated['_id'] = str(updated['_id'])
+            
+            print(f"✅ Successfully upserted metadata for {symbol}")
             return updated
         except Exception as e:
-            print(f"Error upserting metadata: {e}")
+            print(f"❌ Error upserting metadata for {symbol}: {e}")
+            import traceback
+            traceback.print_exc()
             return None
 
     def get_metadata(self, symbol=None):

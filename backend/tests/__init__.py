@@ -1,1 +1,1 @@
-# Test package for FinTech DataGen backend
+# Tests package
