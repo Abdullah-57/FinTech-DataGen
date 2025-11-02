@@ -6,8 +6,27 @@ const horizons = [
   { label: '1h', hours: 1 },
   { label: '3h', hours: 3 },
   { label: '24h', hours: 24 },
-  { label: '72h', hours: 72 }
+  { label: '72h', hours: 72 },
+  { label: '1w', hours: 168 },    // NEW: 1 week = 168 hours
+  { label: '2w', hours: 336 },    // NEW: 2 weeks = 336 hours
+  { label: '1m', hours: 720 }     // NEW: 1 month = 720 hours
 ];
+
+// Helper function to format horizon display
+const formatHorizonDisplay = (hours) => {
+  if (hours >= 720) {
+    const months = hours / 720;
+    return months === 1 ? '1m' : `${months}m`;
+  } else if (hours >= 168) {
+    const weeks = hours / 168;
+    return weeks === 1 ? '1w' : `${weeks}w`;
+  } else if (hours >= 24) {
+    const days = hours / 24;
+    return days === 1 ? '1d' : `${days}d`;
+  } else {
+    return `${hours}h`;
+  }
+};
 
 const Forecasts = () => {
   const [datasets, setDatasets] = useState([]);
@@ -166,23 +185,14 @@ const Forecasts = () => {
       const hist = await axios.get(`/get_historical?symbol=${selectedDataset.symbol}&limit=300`);
       setPublicHistorical(hist.data);
 
-      // Get stored predictions instead of generating new ones
-      const storedPredictions = await axios.get(`/api/predictions?symbol=${selectedDataset.symbol}&models=${models.join(',')}&limit=5`);
-
-      // Format the stored predictions to match expected structure
-      const formattedResults = {
-        symbol: selectedDataset.symbol,
-        results: storedPredictions.data,
-        preview: {
-          models: storedPredictions.data.map(pred => ({
-            model: pred.model,
-            predicted_values: pred.predicted_values,
-            horizon_hours: pred.forecast_horizon * 24 // Convert if needed
-          }))
-        }
-      };
-
-      setPublicForecast(formattedResults);
+      // Use the new horizon format for public API calls
+      const horizonLabel = formatHorizonDisplay(horizon);
+      const modelsParam = models.join(',');
+      const ensembleParam = ensemble ? 'true' : 'false';
+      
+      // Call the public forecast endpoint with proper horizon format
+      const forecast = await axios.get(`/get_forecast?symbol=${selectedDataset.symbol}&horizon=${horizonLabel}&models=${modelsParam}&ensemble=${ensembleParam}`);
+      setPublicForecast(forecast.data);
     } catch (e) {
       setPublicForecast({ error: e?.response?.data?.error || e.message });
     }
@@ -247,13 +257,17 @@ const Forecasts = () => {
   const forecastTraces = useMemo(() => {
     if (!preview) return [];
     const x = preview.dates;
-    return (preview.models || []).map(m => ({
-      x,
-      y: m.predicted_values,
-      type: 'scatter',
-      mode: 'lines+markers',
-      name: `Forecast: ${m.model} (${preview.horizon_hours || m.horizon_hours}h)`
-    }));
+    return (preview.models || []).map(m => {
+      const horizonHours = preview.horizon_hours || m.horizon_hours;
+      const displayHorizon = formatHorizonDisplay(horizonHours);
+      return {
+        x,
+        y: m.predicted_values,
+        type: 'scatter',
+        mode: 'lines+markers',
+        name: `Forecast: ${m.model} (${displayHorizon})`
+      };
+    });
   }, [preview]);
 
   return (
@@ -513,7 +527,7 @@ const Forecasts = () => {
                     📊 Dataset loaded. Click "Run Forecast" to see predictions.
                   </p>
                   <p style={{ margin: '8px 0 0 0', fontSize: '14px', color: '#6c757d' }}>
-                    Config: {selectedDataset.symbol} | {models.join(', ')} | {horizon}h | {ensemble ? 'Ensemble ON' : 'Ensemble OFF'}
+                    Config: {selectedDataset.symbol} | {models.join(', ')} | {formatHorizonDisplay(horizon)} | {ensemble ? 'Ensemble ON' : 'Ensemble OFF'}
                   </p>
                 </div>
               )}

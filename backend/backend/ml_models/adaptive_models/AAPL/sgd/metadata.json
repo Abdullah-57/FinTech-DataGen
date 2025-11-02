@@ -1,0 +1,19 @@
+{
+  "symbol": "AAPL",
+  "model_type": "sgd",
+  "current_version": 1,
+  "versions": [
+    {
+      "version": 1,
+      "metrics": {
+        "rmse": 2.802554904708714,
+        "mae": 1.8426426385082764,
+        "mape": 0.7447115416315752
+      },
+      "timestamp": "2025-11-02T23:55:55.042788",
+      "notes": "Initial training with 92 samples",
+      "is_active": true
+    }
+  ],
+  "last_updated": "2025-11-02T23:55:55.045859"
+}

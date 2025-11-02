@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Dashboard from './components/Dashboard';
 import DataGenerator from './components/DataGenerator';
 import Forecasts from './components/Forecasts';
+import AdaptiveLearningShowcase from './components/AdaptiveLearningShowcase';
 import './App.css';
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
               <li><Link to="/">Dashboard</Link></li>
               <li><Link to="/generator">Data Generator</Link></li>
               <li><Link to="/forecasts">Forecasts</Link></li>
+              <li><Link to="/adaptive-showcase">🧠 Adaptive Learning</Link></li>
             </ul>
           </div>
         </nav>
@@ -26,6 +28,7 @@ function App() {
               <Route path="/" element={<Dashboard />} />
               <Route path="/generator" element={<DataGenerator />} />
               <Route path="/forecasts" element={<Forecasts />} />
+              <Route path="/adaptive-showcase" element={<AdaptiveLearningShowcase />} />
             </Routes>
           </div>
         </main>

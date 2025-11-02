@@ -398,6 +398,199 @@ class MongoDB:
             return latest['generated_at'].strftime('%Y-%m-%d %H:%M:%S') if latest else None
         except:
             return None
+
+    # Adaptive Learning Extensions
+    def get_adaptive_learning_stats(self):
+        """Get adaptive learning statistics from database"""
+        try:
+            if self.db is None:
+                return {'error': 'Database not connected'}
+            
+            stats = {}
+            
+            # Model versions statistics
+            if 'model_versions' in self.db.list_collection_names():
+                model_versions_col = self.db.model_versions
+                
+                # Total versions
+                stats['total_model_versions'] = model_versions_col.count_documents({})
+                
+                # Versions by model type
+                pipeline = [
+                    {'$group': {'_id': '$model_type', 'count': {'$sum': 1}}},
+                    {'$sort': {'count': -1}}
+                ]
+                stats['versions_by_type'] = list(model_versions_col.aggregate(pipeline))
+                
+                # Active models
+                stats['active_models'] = model_versions_col.count_documents({'is_active': True})
+                
+                # Recent versions (last 7 days)
+                from datetime import datetime, timedelta
+                week_ago = datetime.now() - timedelta(days=7)
+                stats['recent_versions'] = model_versions_col.count_documents({
+                    'created_at': {'$gte': week_ago}
+                })
+            else:
+                stats['total_model_versions'] = 0
+                stats['versions_by_type'] = []
+                stats['active_models'] = 0
+                stats['recent_versions'] = 0
+            
+            # Training events statistics
+            if 'training_events' in self.db.list_collection_names():
+                training_events_col = self.db.training_events
+                
+                # Total training events
+                stats['total_training_events'] = training_events_col.count_documents({})
+                
+                # Successful vs failed training
+                stats['successful_training'] = training_events_col.count_documents({'status': 'completed'})
+                stats['failed_training'] = training_events_col.count_documents({'status': 'failed'})
+                
+                # Recent training events (last 24 hours)
+                day_ago = datetime.now() - timedelta(days=1)
+                stats['recent_training_events'] = training_events_col.count_documents({
+                    'timestamp': {'$gte': day_ago}
+                })
+            else:
+                stats['total_training_events'] = 0
+                stats['successful_training'] = 0
+                stats['failed_training'] = 0
+                stats['recent_training_events'] = 0
+            
+            # Performance history statistics
+            if 'performance_history' in self.db.list_collection_names():
+                performance_col = self.db.performance_history
+                stats['total_performance_records'] = performance_col.count_documents({})
+            else:
+                stats['total_performance_records'] = 0
+            
+            # Predictions statistics (existing collection)
+            stats['total_predictions'] = self._predictions_col.count_documents({}) if self._predictions_col else 0
+            
+            return stats
+            
+        except Exception as e:
+            print(f"Error getting adaptive learning stats: {e}")
+            return {'error': str(e)}
+    
+    def save_model_version(self, version_data):
+        """Save model version to database"""
+        try:
+            if self.db is None:
+                raise Exception("Database not connected")
+            
+            collection = self.db.model_versions
+            result = collection.insert_one(version_data)
+            return result
+        except Exception as e:
+            print(f"Error saving model version: {e}")
+            raise
+    
+    def get_model_versions(self, symbol=None, model_type=None, limit=50):
+        """Get model versions with optional filtering"""
+        try:
+            if self.db is None:
+                return []
+            
+            collection = self.db.model_versions
+            query = {}
+            
+            if symbol:
+                query['symbol'] = symbol
+            if model_type:
+                query['model_type'] = model_type
+            
+            cursor = collection.find(query).sort('created_at', -1).limit(limit)
+            versions = []
+            
+            for doc in cursor:
+                doc['_id'] = str(doc['_id'])
+                versions.append(doc)
+            
+            return versions
+        except Exception as e:
+            print(f"Error getting model versions: {e}")
+            return []
+    
+    def save_training_event(self, event_data):
+        """Save training event to database"""
+        try:
+            if self.db is None:
+                raise Exception("Database not connected")
+            
+            collection = self.db.training_events
+            result = collection.insert_one(event_data)
+            return result
+        except Exception as e:
+            print(f"Error saving training event: {e}")
+            raise
+    
+    def get_training_events(self, symbol=None, model_type=None, limit=50):
+        """Get training events with optional filtering"""
+        try:
+            if self.db is None:
+                return []
+            
+            collection = self.db.training_events
+            query = {}
+            
+            if symbol:
+                query['symbol'] = symbol
+            if model_type:
+                query['model_type'] = model_type
+            
+            cursor = collection.find(query).sort('timestamp', -1).limit(limit)
+            events = []
+            
+            for doc in cursor:
+                doc['_id'] = str(doc['_id'])
+                events.append(doc)
+            
+            return events
+        except Exception as e:
+            print(f"Error getting training events: {e}")
+            return []
+    
+    def save_performance_record(self, performance_data):
+        """Save performance record to database"""
+        try:
+            if self.db is None:
+                raise Exception("Database not connected")
+            
+            collection = self.db.performance_history
+            result = collection.insert_one(performance_data)
+            return result
+        except Exception as e:
+            print(f"Error saving performance record: {e}")
+            raise
+    
+    def get_performance_history(self, symbol=None, model_type=None, limit=100):
+        """Get performance history with optional filtering"""
+        try:
+            if self.db is None:
+                return []
+            
+            collection = self.db.performance_history
+            query = {}
+            
+            if symbol:
+                query['symbol'] = symbol
+            if model_type:
+                query['model_type'] = model_type
+            
+            cursor = collection.find(query).sort('timestamp', -1).limit(limit)
+            records = []
+            
+            for doc in cursor:
+                doc['_id'] = str(doc['_id'])
+                records.append(doc)
+            
+            return records
+        except Exception as e:
+            print(f"Error getting performance history: {e}")
+            return []
     
     def close(self):
         """Close database connection"""

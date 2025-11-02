@@ -639,6 +639,10 @@ def _parse_horizon_to_hours(h: str) -> int:
             return max(1, int(s[:-1]))
         if s.endswith('d'):
             return max(1, int(s[:-1])) * 24
+        if s.endswith('w'):                    # NEW: weeks support
+            return max(1, int(s[:-1])) * 24 * 7
+        if s.endswith('m'):                    # NEW: months support
+            return max(1, int(s[:-1])) * 24 * 30
         # default assume hours
         return max(1, int(s))
     except:
@@ -1002,6 +1006,233 @@ def run_forecast():
                 'models': preview_outputs
             }
         }), 200
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+# Adaptive Learning API Endpoints
+@app.route('/api/adaptive/register', methods=['POST'])
+def register_adaptive_learning():
+    """Register a symbol for adaptive learning"""
+    try:
+        data = request.get_json()
+        symbol = data.get('symbol')
+        model_types = data.get('model_types', ['sgd', 'lstm', 'ensemble'])
+        
+        if not symbol:
+            return jsonify({'error': 'Symbol is required'}), 400
+        
+        # Initialize continuous learning manager if not exists
+        if not hasattr(app, 'continuous_learning_manager'):
+            from ml_models.continuous_learning import ContinuousLearningManager
+            app.continuous_learning_manager = ContinuousLearningManager(db)
+        
+        result = app.continuous_learning_manager.register_symbol(symbol, model_types)
+        return jsonify(result), 200 if result['status'] == 'success' else 400
+        
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/api/adaptive/train', methods=['POST'])
+def initial_adaptive_training():
+    """Perform initial training for adaptive models"""
+    try:
+        data = request.get_json()
+        symbol = data.get('symbol')
+        model_type = data.get('model_type', 'sgd')
+        
+        if not symbol:
+            return jsonify({'error': 'Symbol is required'}), 400
+        
+        if not hasattr(app, 'continuous_learning_manager'):
+            from ml_models.continuous_learning import ContinuousLearningManager
+            app.continuous_learning_manager = ContinuousLearningManager(db)
+        
+        result = app.continuous_learning_manager.initial_training(symbol, model_type)
+        return jsonify(result), 200 if result['status'] == 'success' else 400
+        
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/api/adaptive/update', methods=['POST'])
+def manual_adaptive_update():
+    """Manually trigger model update"""
+    try:
+        data = request.get_json()
+        symbol = data.get('symbol')
+        model_type = data.get('model_type', 'sgd')
+        
+        if not symbol:
+            return jsonify({'error': 'Symbol is required'}), 400
+        
+        if not hasattr(app, 'continuous_learning_manager'):
+            from ml_models.continuous_learning import ContinuousLearningManager
+            app.continuous_learning_manager = ContinuousLearningManager(db)
+        
+        result = app.continuous_learning_manager.manual_update(symbol, model_type)
+        return jsonify(result), 200 if result['status'] == 'success' else 400
+        
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/api/adaptive/predict', methods=['POST'])
+def adaptive_predict():
+    """Make predictions using adaptive models"""
+    try:
+        data = request.get_json()
+        symbol = data.get('symbol')
+        model_type = data.get('model_type', 'sgd')
+        horizon = data.get('horizon', 1)
+        
+        if not symbol:
+            return jsonify({'error': 'Symbol is required'}), 400
+        
+        if not hasattr(app, 'continuous_learning_manager'):
+            from ml_models.continuous_learning import ContinuousLearningManager
+            app.continuous_learning_manager = ContinuousLearningManager(db)
+        
+        result = app.continuous_learning_manager.predict(symbol, model_type, horizon)
+        return jsonify(result), 200 if result['status'] == 'success' else 400
+        
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/api/adaptive/status', methods=['GET'])
+def adaptive_status():
+    """Get adaptive learning system status"""
+    try:
+        if not hasattr(app, 'continuous_learning_manager'):
+            from ml_models.continuous_learning import ContinuousLearningManager
+            app.continuous_learning_manager = ContinuousLearningManager(db)
+        
+        status = app.continuous_learning_manager.get_status()
+        return jsonify(status), 200
+        
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/api/adaptive/performance/<symbol>/<model_type>', methods=['GET'])
+def adaptive_performance(symbol, model_type):
+    """Get performance information for a specific model"""
+    try:
+        if not hasattr(app, 'continuous_learning_manager'):
+            from ml_models.continuous_learning import ContinuousLearningManager
+            app.continuous_learning_manager = ContinuousLearningManager(db)
+        
+        result = app.continuous_learning_manager.get_model_performance(symbol, model_type)
+        return jsonify(result), 200 if result['status'] == 'success' else 400
+        
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/api/adaptive/rollback', methods=['POST'])
+def adaptive_rollback():
+    """Rollback model to a specific version"""
+    try:
+        data = request.get_json()
+        symbol = data.get('symbol')
+        model_type = data.get('model_type')
+        version = data.get('version')
+        
+        if not all([symbol, model_type, version]):
+            return jsonify({'error': 'Symbol, model_type, and version are required'}), 400
+        
+        if not hasattr(app, 'continuous_learning_manager'):
+            from ml_models.continuous_learning import ContinuousLearningManager
+            app.continuous_learning_manager = ContinuousLearningManager(db)
+        
+        result = app.continuous_learning_manager.rollback_model(symbol, model_type, version)
+        return jsonify(result), 200 if result['status'] == 'success' else 400
+        
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/api/adaptive/start', methods=['POST'])
+def start_adaptive_learning():
+    """Start continuous learning scheduler"""
+    try:
+        if not hasattr(app, 'continuous_learning_manager'):
+            from ml_models.continuous_learning import ContinuousLearningManager
+            app.continuous_learning_manager = ContinuousLearningManager(db)
+        
+        app.continuous_learning_manager.start_continuous_learning()
+        return jsonify({'status': 'success', 'message': 'Continuous learning started'}), 200
+        
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/api/adaptive/stop', methods=['POST'])
+def stop_adaptive_learning():
+    """Stop continuous learning scheduler"""
+    try:
+        if hasattr(app, 'continuous_learning_manager'):
+            app.continuous_learning_manager.stop_continuous_learning()
+        
+        return jsonify({'status': 'success', 'message': 'Continuous learning stopped'}), 200
+        
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/api/adaptive/stats', methods=['GET'])
+def adaptive_stats():
+    """Get adaptive learning database statistics"""
+    try:
+        if db is None:
+            return jsonify({'error': 'Database not available'}), 503
+        
+        stats = db.get_adaptive_learning_stats()
+        return jsonify(stats), 200
+        
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/api/adaptive/versions', methods=['GET'])
+def get_model_versions():
+    """Get model versions with optional filtering"""
+    try:
+        if db is None:
+            return jsonify([]), 200
+        
+        symbol = request.args.get('symbol')
+        model_type = request.args.get('model_type')
+        limit = int(request.args.get('limit', 50))
+        
+        versions = db.get_model_versions(symbol, model_type, limit)
+        return jsonify(versions), 200
+        
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/api/adaptive/training-events', methods=['GET'])
+def get_training_events():
+    """Get training events with optional filtering"""
+    try:
+        if db is None:
+            return jsonify([]), 200
+        
+        symbol = request.args.get('symbol')
+        model_type = request.args.get('model_type')
+        limit = int(request.args.get('limit', 50))
+        
+        events = db.get_training_events(symbol, model_type, limit)
+        return jsonify(events), 200
+        
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/api/adaptive/cleanup', methods=['POST'])
+def cleanup_adaptive_data():
+    """Cleanup old adaptive learning data"""
+    try:
+        data = request.get_json() or {}
+        days_to_keep = data.get('days_to_keep', 90)
+        
+        if not hasattr(app, 'continuous_learning_manager'):
+            from ml_models.continuous_learning import ContinuousLearningManager
+            app.continuous_learning_manager = ContinuousLearningManager(db)
+        
+        result = app.continuous_learning_manager.cleanup_old_data(days_to_keep)
+        return jsonify(result), 200 if result['status'] == 'success' else 400
+        
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 

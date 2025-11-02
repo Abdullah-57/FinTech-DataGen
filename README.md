@@ -149,7 +149,7 @@ MongoDB → REST Call → Format Data → Plotly.js → React Component
 
 *Interactive forecasting with model selection and candlestick charts*
 - Model selection dropdown (Moving Average, ARIMA, LSTM, Transformer, Ensemble)
-- Forecast horizon selection (1hr, 3hrs, 24hrs, 72hrs) via `_parse_horizon_to_hours()` function
+- Forecast horizon selection (1hr, 3hrs, 24hrs, 72hrs, 1w, 2w, 1m) via `_parse_horizon_to_hours()` function
 - Interactive Plotly.js candlestick charts with OHLCV data
 - Real-time prediction overlay on historical price data
 - Zoom, pan, and hover functionality for detailed analysis
