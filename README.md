@@ -1,7 +1,9 @@
 # FinTech DataGen
 
 **Course:** CS4063 - Natural Language Processing 
+
 **Author:** Abdullah Daoud
+
 **Date:** 5th October 2025  
 
 ---
