@@ -1,10 +1,18 @@
-# Adaptive and Continuous Learning for Financial Forecasting
-**Short Report**
+# Adaptive and Continuous Learning for Financial Forecasting Report
 
 **Course:** Natural Language Processing (NLP) - Section A  
+
+
 **Instructor:** Mr. Omer Baig  
+
+
 **Institution:** FAST University  
+
+
 **Date:** November 10, 2025
+
+
+**Group Members:** Abdullah Daoud (22I-2626), Usman Ali (22I-2725), Faizan Rasheed (22I-2734)
 
 ---
 
@@ -163,7 +171,7 @@ Comprehensive monitoring interface with auto-refresh every 10 seconds:
 4. **Activity Log:** Real-time event streaming (training, rebalancing, alerts)
 5. **Manual Controls:** Trigger retraining, force rebalance, model comparison, data export
 
-**[PLACEHOLDER: Screenshot of Adaptive Monitoring Dashboard showing system status, metrics cards, performance trend chart, and activity log]**
+![Monitoring-Dashboard](https://github.com/user-attachments/assets/03870177-d2f3-4887-b970-469594b19b67)
 
 ### 2.4 Adaptive Learning Effectiveness Results
 
@@ -280,7 +288,7 @@ Risk Score = (position_concentration × 0.3 +
 
 **Key Achievement:** Outperformed all benchmarks while maintaining lower risk profile
 
-**[PLACEHOLDER: Screenshot of Portfolio Dashboard showing summary cards, performance metrics, risk dashboard, and positions table]**
+![Portfolio-Dashboard](https://github.com/user-attachments/assets/5980dbb2-138b-49f1-9877-2a1551206717)
 
 ---
 
@@ -293,7 +301,7 @@ Interactive visualization displaying:
 - **Error Overlay:** Percentage error bar chart with color coding (Green < 2%, Yellow 2-5%, Red > 5%)
 - **Interactive Features:** Zoom, pan, date range selector, download option
 
-**[PLACEHOLDER: Screenshot of Candlestick Chart with predicted vs. actual prices and error overlay bar chart]**
+![Prediction-Chart](https://github.com/user-attachments/assets/1b3c8d4f-0d2a-43ad-92d7-002994189c6d)
 
 ### 4.2 Portfolio Growth Visualization
 
@@ -303,7 +311,7 @@ Portfolio value progression over 30-day period:
 - Benchmark comparison (S&P 500)
 - Return percentage overlay
 
-**[PLACEHOLDER: Screenshot of Portfolio Growth Chart showing value progression from $100,000 to $108,500 over 30 days]**
+![Portfolio-Trend](https://github.com/user-attachments/assets/803267ae-9660-4b87-a74c-1af3f51343c2)
 
 ### 4.3 Ensemble Weight Evolution
 
@@ -313,7 +321,7 @@ Visual representation of how ensemble weights evolved:
 - ARIMA weight: 25% → 20%
 - MA weight: 25% → 15%
 
-**[PLACEHOLDER: Screenshot of Ensemble Weight Evolution Line Chart showing weight changes over 30 days]**
+![Models-Metrics](https://github.com/user-attachments/assets/d7b227fa-4803-4ba8-9a92-5b6a91bfe77d)
 
 ### 4.4 Model Performance Comparison
 
@@ -329,7 +337,7 @@ Bar chart comparing model accuracy:
 
 **Key Finding:** Ensemble achieves 12.5% better accuracy than best individual model
 
-**[PLACEHOLDER: Screenshot of Model Performance Comparison Bar Chart]**
+![Model-Performance](https://github.com/user-attachments/assets/d214ea8f-18c1-4168-b43d-0213efeeba54)
 
 ---
 
