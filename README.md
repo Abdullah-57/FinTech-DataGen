@@ -1,9 +1,17 @@
 # Adaptive and Continuous Learning for Financial Forecasting Report
 
 **Course:** Natural Language Processing (NLP) - Section A  
+
+
 **Instructor:** Mr. Omer Baig  
+
+
 **Institution:** FAST University  
+
+
 **Date:** November 10, 2025
+
+
 **Group Members:** Abdullah Daoud (22I-2626), Usman Ali (22I-2725), Faizan Rasheed (22I-2734)
 
 ---
